@@ -1,0 +1,3935 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.0">
+    
+    
+      
+        <title>Run - benchbuild</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6e35a1a6.min.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-benchbuildutilsrun" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="benchbuild" class="md-header-nav__button md-logo" aria-label="benchbuild">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            benchbuild
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Run
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/PolyJIT/benchbuild/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    benchbuild
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="benchbuild" class="md-nav__button md-logo" aria-label="benchbuild">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    benchbuild
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/PolyJIT/benchbuild/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    benchbuild
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Benchbuild
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Benchbuild" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Benchbuild
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../driver/" title="Driver" class="md-nav__link">
+      Driver
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiment/" title="Experiment" class="md-nav__link">
+      Experiment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../likwid/" title="Likwid" class="md-nav__link">
+      Likwid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../project/" title="Project" class="md-nav__link">
+      Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../settings/" title="Settings" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/" title="Statistics" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-10" type="checkbox" id="nav-2-1-10">
+    
+    <label class="md-nav__link" for="nav-2-1-10">
+      CLI
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="CLI" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        CLI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/bootstrap/" title="Bootstrap" class="md-nav__link">
+      Bootstrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/config/" title="Config" class="md-nav__link">
+      Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/experiment/" title="Experiment" class="md-nav__link">
+      Experiment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/main/" title="Main" class="md-nav__link">
+      Main
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/project/" title="Project" class="md-nav__link">
+      Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/report/" title="Report" class="md-nav__link">
+      Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/run/" title="Run" class="md-nav__link">
+      Run
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/slurm/" title="Slurm" class="md-nav__link">
+      Slurm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-11" type="checkbox" id="nav-2-1-11">
+    
+    <label class="md-nav__link" for="nav-2-1-11">
+      Db
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Db" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Db
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/manage/" title="Manage" class="md-nav__link">
+      Manage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-11-3" type="checkbox" id="nav-2-1-11-3">
+    
+    <label class="md-nav__link" for="nav-2-1-11-3">
+      Versions
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Versions" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-11-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Versions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/001_Remove_RegressionTest_table/" title="001 Remove Regressiontest Table" class="md-nav__link">
+      001 Remove Regressiontest Table
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/002_Remove_GlobalConfig_table/" title="002 Remove Globalconfig Table" class="md-nav__link">
+      002 Remove Globalconfig Table
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/003_Unmanage_Events/" title="003 Unmanage Events" class="md-nav__link">
+      003 Unmanage Events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-12" type="checkbox" id="nav-2-1-12">
+    
+    <label class="md-nav__link" for="nav-2-1-12">
+      Experiments
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Experiments" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Experiments
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiments/empty/" title="Empty" class="md-nav__link">
+      Empty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiments/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiments/raw/" title="Raw" class="md-nav__link">
+      Raw
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-13" type="checkbox" id="nav-2-1-13">
+    
+    <label class="md-nav__link" for="nav-2-1-13">
+      Extensions
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Extensions" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-13">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Extensions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/base/" title="Base" class="md-nav__link">
+      Base
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/compiler/" title="Compiler" class="md-nav__link">
+      Compiler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/run/" title="Run" class="md-nav__link">
+      Run
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/time/" title="Time" class="md-nav__link">
+      Time
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14" type="checkbox" id="nav-2-1-14">
+    
+    <label class="md-nav__link" for="nav-2-1-14">
+      Projects
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Projects" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-14">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-2" type="checkbox" id="nav-2-1-14-2">
+    
+    <label class="md-nav__link" for="nav-2-1-14-2">
+      Apollo
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Apollo" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Apollo
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/apollo/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/apollo/rodinia/" title="Rodinia" class="md-nav__link">
+      Rodinia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/apollo/scimark/" title="Scimark" class="md-nav__link">
+      Scimark
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-3" type="checkbox" id="nav-2-1-14-3">
+    
+    <label class="md-nav__link" for="nav-2-1-14-3">
+      Benchbuild
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Benchbuild" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Benchbuild
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/bots/" title="Bots" class="md-nav__link">
+      Bots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/bzip2/" title="Bzip2" class="md-nav__link">
+      Bzip2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/ccrypt/" title="Ccrypt" class="md-nav__link">
+      Ccrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/crafty/" title="Crafty" class="md-nav__link">
+      Crafty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/crocopat/" title="Crocopat" class="md-nav__link">
+      Crocopat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/ffmpeg/" title="Ffmpeg" class="md-nav__link">
+      Ffmpeg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/gzip/" title="Gzip" class="md-nav__link">
+      Gzip
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/js/" title="Js" class="md-nav__link">
+      Js
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/lammps/" title="Lammps" class="md-nav__link">
+      Lammps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/lapack/" title="Lapack" class="md-nav__link">
+      Lapack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/leveldb/" title="Leveldb" class="md-nav__link">
+      Leveldb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/linpack/" title="Linpack" class="md-nav__link">
+      Linpack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/lulesh/" title="Lulesh" class="md-nav__link">
+      Lulesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/mcrypt/" title="Mcrypt" class="md-nav__link">
+      Mcrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/minisat/" title="Minisat" class="md-nav__link">
+      Minisat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/openssl/" title="Openssl" class="md-nav__link">
+      Openssl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/povray/" title="Povray" class="md-nav__link">
+      Povray
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/rasdaman/" title="Rasdaman" class="md-nav__link">
+      Rasdaman
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/ruby/" title="Ruby" class="md-nav__link">
+      Ruby
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/sdcc/" title="Sdcc" class="md-nav__link">
+      Sdcc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/sevenz/" title="Sevenz" class="md-nav__link">
+      Sevenz
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/tcc/" title="Tcc" class="md-nav__link">
+      Tcc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/x264/" title="X264" class="md-nav__link">
+      X264
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/xz/" title="Xz" class="md-nav__link">
+      Xz
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-4" type="checkbox" id="nav-2-1-14-4">
+    
+    <label class="md-nav__link" for="nav-2-1-14-4">
+      Gentoo
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Gentoo" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Gentoo
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/autoportage/" title="Autoportage" class="md-nav__link">
+      Autoportage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/bzip2/" title="Bzip2" class="md-nav__link">
+      Bzip2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/crafty/" title="Crafty" class="md-nav__link">
+      Crafty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/eix/" title="Eix" class="md-nav__link">
+      Eix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/gentoo/" title="Gentoo" class="md-nav__link">
+      Gentoo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/gzip/" title="Gzip" class="md-nav__link">
+      Gzip
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/info/" title="Info" class="md-nav__link">
+      Info
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/lammps/" title="Lammps" class="md-nav__link">
+      Lammps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/portage_gen/" title="Portage Gen" class="md-nav__link">
+      Portage Gen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/postgresql/" title="Postgresql" class="md-nav__link">
+      Postgresql
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/sevenz/" title="Sevenz" class="md-nav__link">
+      Sevenz
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/x264/" title="X264" class="md-nav__link">
+      X264
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/xz/" title="Xz" class="md-nav__link">
+      Xz
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-5" type="checkbox" id="nav-2-1-14-5">
+    
+    <label class="md-nav__link" for="nav-2-1-14-5">
+      Lnt
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Lnt" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Lnt
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/lnt/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/lnt/lnt/" title="Lnt" class="md-nav__link">
+      Lnt
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-6" type="checkbox" id="nav-2-1-14-6">
+    
+    <label class="md-nav__link" for="nav-2-1-14-6">
+      Polybench
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Polybench" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Polybench
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/polybench/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/polybench/polybench-mod/" title="Polybench Mod" class="md-nav__link">
+      Polybench Mod
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/polybench/polybench/" title="Polybench" class="md-nav__link">
+      Polybench
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-7" type="checkbox" id="nav-2-1-14-7">
+    
+    <label class="md-nav__link" for="nav-2-1-14-7">
+      Test
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Test" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Test
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/test/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/test/test/" title="Test" class="md-nav__link">
+      Test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-15" type="checkbox" id="nav-2-1-15">
+    
+    <label class="md-nav__link" for="nav-2-1-15">
+      Reports
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Reports" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-15">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Reports
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reports/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reports/raw/" title="Raw" class="md-nav__link">
+      Raw
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reports/status/" title="Status" class="md-nav__link">
+      Status
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-16" type="checkbox" id="nav-2-1-16" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-16">
+      Utils
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Utils" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-16">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Utils
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../actions/" title="Actions" class="md-nav__link">
+      Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bootstrap/" title="Bootstrap" class="md-nav__link">
+      Bootstrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../compiler/" title="Compiler" class="md-nav__link">
+      Compiler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../db/" title="Db" class="md-nav__link">
+      Db
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dict/" title="Dict" class="md-nav__link">
+      Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../path/" title="Path" class="md-nav__link">
+      Path
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../progress/" title="Progress" class="md-nav__link">
+      Progress
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../requirements/" title="Requirements" class="md-nav__link">
+      Requirements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Run
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Run" class="md-nav__link md-nav__link--active">
+      Run
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin_run_group" class="md-nav__link">
+    begin_run_group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end_run_group" class="md-nav__link">
+    end_run_group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit_code_from_run_infos" class="md-nav__link">
+    exit_code_from_run_infos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail_run_group" class="md-nav__link">
+    fail_run_group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in_builddir" class="md-nav__link">
+    in_builddir
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store_config" class="md-nav__link">
+    store_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track_execution" class="md-nav__link">
+    track_execution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch" class="md-nav__link">
+    watch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_env_recursive" class="md-nav__link">
+    with_env_recursive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runinfo" class="md-nav__link">
+    RunInfo
+  </a>
+  
+    <nav class="md-nav" aria-label="RunInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add_payload" class="md-nav__link">
+    add_payload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../schedule_tree/" title="Schedule Tree" class="md-nav__link">
+      Schedule Tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../schema/" title="Schema" class="md-nav__link">
+      Schema
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../settings/" title="Settings" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/" title="Slurm" class="md-nav__link">
+      Slurm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tasks/" title="Tasks" class="md-nav__link">
+      Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uchroot/" title="Uchroot" class="md-nav__link">
+      Uchroot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../unionfs/" title="Unionfs" class="md-nav__link">
+      Unionfs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../user_interface/" title="User Interface" class="md-nav__link">
+      User Interface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../versions/" title="Versions" class="md-nav__link">
+      Versions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wrapping/" title="Wrapping" class="md-nav__link">
+      Wrapping
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin_run_group" class="md-nav__link">
+    begin_run_group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end_run_group" class="md-nav__link">
+    end_run_group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit_code_from_run_infos" class="md-nav__link">
+    exit_code_from_run_infos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail_run_group" class="md-nav__link">
+    fail_run_group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in_builddir" class="md-nav__link">
+    in_builddir
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store_config" class="md-nav__link">
+    store_config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track_execution" class="md-nav__link">
+    track_execution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch" class="md-nav__link">
+    watch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with_env_recursive" class="md-nav__link">
+    with_env_recursive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runinfo" class="md-nav__link">
+    RunInfo
+  </a>
+  
+    <nav class="md-nav" aria-label="RunInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add_payload" class="md-nav__link">
+    add_payload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/PolyJIT/benchbuild/edit/master/reference/benchbuild/utils/run.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="module-benchbuildutilsrun">Module benchbuild.utils.run</h1>
+<p>Experiment helpers.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Experiment helpers.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">typing</span> <span class="kn">as</span> <span class="nn">t</span>
+
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="kn">import</span> <span class="nn">attr</span>
+
+<span class="kn">from</span> <span class="nn">plumbum</span> <span class="kn">import</span> <span class="n">TEE</span><span class="p">,</span> <span class="n">local</span>
+
+<span class="kn">from</span> <span class="nn">plumbum.commands</span> <span class="kn">import</span> <span class="n">ProcessExecutionError</span>
+
+<span class="kn">from</span> <span class="nn">benchbuild</span> <span class="kn">import</span> <span class="n">settings</span><span class="p">,</span> <span class="n">signals</span>
+
+<span class="n">CFG</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">CFG</span>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@attr.s</span><span class="p">(</span><span class="nb">cmp</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">RunInfo</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Execution context of wrapped binaries.</span>
+
+<span class="sd">    Execution of tracked binaries is guarded with this context</span>
+
+<span class="sd">    object. In here we store everything about a single binary</span>
+
+<span class="sd">    execution for consumption of an experiment.</span>
+
+<span class="sd">    Attributes:</span>
+
+<span class="sd">        cmd ():</span>
+
+<span class="sd">        failed ():</span>
+
+<span class="sd">        project ():</span>
+
+<span class="sd">        experiment ():</span>
+
+<span class="sd">        retcode ():</span>
+
+<span class="sd">        stdout ():</span>
+
+<span class="sd">        stderr ():</span>
+
+<span class="sd">        db_run ():</span>
+
+<span class="sd">        session ():</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__begin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">ename</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Begin a run in the database log.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">            command: The command that will be executed.</span>
+
+<span class="sd">            pname: The project name we belong to.</span>
+
+<span class="sd">            ename: The experiment name we belong to.</span>
+
+<span class="sd">            group: The run group we belong to.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            (run, session), where run is the generated run instance and</span>
+
+<span class="sd">            session the associated transaction for later use.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils.db</span> <span class="kn">import</span> <span class="n">create_run</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils</span> <span class="kn">import</span> <span class="n">schema</span> <span class="k">as</span> <span class="n">s</span>
+
+        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+        <span class="n">db_run</span><span class="p">,</span> <span class="n">session</span> <span class="o">=</span> <span class="n">create_run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">ename</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+
+        <span class="n">db_run</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">db_run</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;running&#39;</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">RunLog</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">run_id</span> <span class="o">=</span> <span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">CFG</span><span class="p">)</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">db_run</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span> <span class="o">=</span> <span class="n">db_run</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
+
+    <span class="k">def</span> <span class="nf">__end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        End a run in the database log (Successfully).</span>
+
+<span class="sd">        This will persist the log information in the database and commit the</span>
+
+<span class="sd">        transaction.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">            db_run: The ``run`` schema object we belong to</span>
+
+<span class="sd">            session: The db transaction we belong to.</span>
+
+<span class="sd">            stdout: The stdout we captured of the run.</span>
+
+<span class="sd">            stderr: The stderr we capture of the run.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils.schema</span> <span class="kn">import</span> <span class="n">RunLog</span>
+
+        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+        <span class="n">run_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RunLog</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RunLog</span><span class="o">.</span><span class="n">run_id</span> <span class="o">==</span> <span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;completed&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__fail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">retcode</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        End a run in the database log (Unsuccessfully).</span>
+
+<span class="sd">        This will persist the log information in the database and commit the</span>
+
+<span class="sd">        transaction.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">            db_run: The ``run`` schema object we belong to</span>
+
+<span class="sd">            session: The db transaction we belong to.</span>
+
+<span class="sd">            retcode: The return code we captured of the run.</span>
+
+<span class="sd">            stdout: The stdout we captured of the run.</span>
+
+<span class="sd">            stderr: The stderr we capture of the run.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils.schema</span> <span class="kn">import</span> <span class="n">RunLog</span>
+
+        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+        <span class="n">run_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RunLog</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RunLog</span><span class="o">.</span><span class="n">run_id</span> <span class="o">==</span> <span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">retcode</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;failed&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="p">)</span>
+
+    <span class="n">cmd</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">failed</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">project</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">experiment</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">retcode</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">stdout</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">attr</span><span class="o">.</span><span class="n">Factory</span><span class="p">(</span><span class="nb">list</span><span class="p">),</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">stderr</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">attr</span><span class="o">.</span><span class="n">Factory</span><span class="p">(</span><span class="nb">list</span><span class="p">),</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">db_run</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+    <span class="n">session</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__begin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+
+                     <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">run_uuid</span><span class="p">)</span>
+
+        <span class="n">signals</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;SIGTERM&quot;</span><span class="p">,</span> <span class="s2">&quot;SIGTERM&quot;</span><span class="p">)</span>
+
+        <span class="n">run_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">settings</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">][</span><span class="s2">&quot;run_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_id</span>
+
+    <span class="k">def</span> <span class="nf">add_payload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">payload</span><span class="p">:</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">payload</span><span class="p">}</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">payload</span><span class="p">})</span>
+
+    <span class="nd">@property</span>
+
+    <span class="k">def</span> <span class="nf">has_failed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Check, whether this run failed.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">failed</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">expected_retcode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">cmd_env</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">to_env_dict</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="n">local</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="o">**</span><span class="n">cmd_env</span><span class="p">):</span>
+
+            <span class="k">try</span><span class="p">:</span>
+
+                <span class="n">bin_name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="n">retcode</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> \
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span> <span class="o">&amp;</span> <span class="n">TEE</span><span class="p">(</span><span class="n">retcode</span><span class="o">=</span><span class="n">expected_retcode</span><span class="p">)</span>
+
+                <span class="n">f_stdout</span> <span class="o">=</span> <span class="n">bin_name</span> <span class="o">+</span> <span class="s2">&quot;.stdout&quot;</span>
+
+                <span class="n">f_stderr</span> <span class="o">=</span> <span class="n">bin_name</span> <span class="o">+</span> <span class="s2">&quot;.stderr&quot;</span>
+
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_stdout</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd_stdout</span><span class="p">:</span>
+
+                    <span class="n">fd_stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stdout</span><span class="p">)</span>
+
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_stderr</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd_stderr</span><span class="p">:</span>
+
+                    <span class="n">fd_stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">retcode</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__end</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">stdout</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">stderr</span><span class="p">))</span>
+
+            <span class="k">except</span> <span class="n">ProcessExecutionError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">retcode</span><span class="p">,</span> <span class="n">ex</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">ex</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">retcode</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">stdout</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">stderr</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Tracked process failed&quot;</span><span class="p">)</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+
+            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">retcode</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;KeyboardInterrupt&quot;</span><span class="p">)</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Interrupted by user input&quot;</span><span class="p">)</span>
+
+                <span class="k">raise</span>
+
+            <span class="k">finally</span><span class="p">:</span>
+
+                <span class="n">signals</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">begin_run_group</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Begin a run_group in the database.</span>
+
+<span class="sd">    A run_group groups a set of runs for a given project. This models a series</span>
+
+<span class="sd">    of runs that form a complete binary runtime test.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        project: The project we begin a new run_group for.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        ``(group, session)`` where group is the created group in the</span>
+
+<span class="sd">        database and session is the database session this group lives in.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.db</span> <span class="kn">import</span> <span class="n">create_run_group</span>
+
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">group</span><span class="p">,</span> <span class="n">session</span> <span class="o">=</span> <span class="n">create_run_group</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;running&#39;</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">group</span><span class="p">,</span> <span class="n">session</span>
+
+<span class="k">def</span> <span class="nf">end_run_group</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    End the run_group successfully.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        group: The run_group we want to complete.</span>
+
+<span class="sd">        session: The database transaction we will finish.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;completed&#39;</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">fail_run_group</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    End the run_group unsuccessfully.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        group: The run_group we want to complete.</span>
+
+<span class="sd">        session: The database transaction we will finish.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;failed&#39;</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">exit_code_from_run_infos</span><span class="p">(</span><span class="n">run_infos</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">RunInfo</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;Generate a single exit code from a list of RunInfo objects.</span>
+
+<span class="sd">    Takes a list of RunInfos and returns the exit code that is furthest away</span>
+
+<span class="sd">    from 0.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        run_infos (t.List[RunInfo]): [description]</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        int: [description]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="n">run_infos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">run_infos</span><span class="p">,</span> <span class="s2">&quot;__iter__&quot;</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="n">run_infos</span><span class="o">.</span><span class="n">retcode</span>
+
+    <span class="n">rcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">ri</span><span class="o">.</span><span class="n">retcode</span> <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">run_infos</span><span class="p">]</span>
+
+    <span class="n">max_rc</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">rcs</span><span class="p">)</span>
+
+    <span class="n">min_rc</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">rcs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">max_rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="n">min_rc</span>
+
+    <span class="k">return</span> <span class="n">max_rc</span>
+
+<span class="nd">@contextmanager</span>
+
+<span class="k">def</span> <span class="nf">track_execution</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Guard the execution of the given command.</span>
+
+<span class="sd">    The given command (`cmd`) will be executed inside a database context.</span>
+
+<span class="sd">    As soon as you leave the context we will commit the transaction.</span>
+
+<span class="sd">    Any necessary modifications to the database can be identified inside</span>
+
+<span class="sd">    the context with the RunInfo object.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        cmd: The command we guard.</span>
+
+<span class="sd">        project: The project we track for.</span>
+
+<span class="sd">        experiment: The experiment we track for.</span>
+
+<span class="sd">    Yields:</span>
+
+<span class="sd">        RunInfo: A context object that carries the necessary</span>
+
+<span class="sd">            database transaction.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">runner</span> <span class="o">=</span> <span class="n">RunInfo</span><span class="p">(</span><span class="n">cmd</span><span class="o">=</span><span class="n">cmd</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span> <span class="n">experiment</span><span class="o">=</span><span class="n">experiment</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">yield</span> <span class="n">runner</span>
+
+    <span class="n">runner</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">watch</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Execute a plumbum command, depending on the user&#39;s settings.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        command: The plumbumb command to execute.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">retcode</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+        <span class="n">final_command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">final_command</span> <span class="o">&amp;</span> <span class="n">TEE</span><span class="p">(</span><span class="n">retcode</span><span class="o">=</span><span class="n">retcode</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">f</span>
+
+<span class="k">def</span> <span class="nf">with_env_recursive</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">envvars</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Recursively updates the environment of cmd and all its subcommands.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        cmd - A plumbum command-like object</span>
+
+<span class="sd">        **envvars - The environment variables to update</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        The updated command.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">plumbum.commands.base</span> <span class="kn">import</span> <span class="n">BoundCommand</span><span class="p">,</span> <span class="n">BoundEnvCommand</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">BoundCommand</span><span class="p">):</span>
+
+        <span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span> <span class="o">=</span> <span class="n">with_env_recursive</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">envvars</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">BoundEnvCommand</span><span class="p">):</span>
+
+        <span class="n">cmd</span><span class="o">.</span><span class="n">envvars</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">envvars</span><span class="p">)</span>
+
+        <span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span> <span class="o">=</span> <span class="n">with_env_recursive</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">envvars</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cmd</span>
+
+<span class="k">def</span> <span class="nf">in_builddir</span><span class="p">(</span><span class="n">sub</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Decorate a project phase with a local working directory change.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        sub: An optional subdirectory to change into.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+    <span class="k">def</span> <span class="nf">wrap_in_builddir</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Wrap the function for the new build directory.&quot;&quot;&quot;</span>
+
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">wrap_in_builddir_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+            <span class="sd">&quot;&quot;&quot;The actual function inside the wrapper for the new builddir.&quot;&quot;&quot;</span>
+
+            <span class="n">p</span> <span class="o">=</span> <span class="n">local</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builddir</span><span class="p">)</span> <span class="o">/</span> <span class="n">sub</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> does not exist.&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">local</span><span class="o">.</span><span class="n">cwd</span><span class="p">:</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;CWD already is </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="n">local</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+
+                <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrap_in_builddir_func</span>
+
+    <span class="k">return</span> <span class="n">wrap_in_builddir</span>
+
+<span class="k">def</span> <span class="nf">store_config</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Decorator for storing the configuration in the project&#39;s builddir.&quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">wrap_store_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Wrapper that contains the actual storage call for the config.&quot;&quot;&quot;</span>
+
+        <span class="n">CFG</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">local</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builddir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;.benchbuild.yml&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrap_store_config</span>
+</code></pre></div>
+
+
+</details>
+<h2 id="variables">Variables</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">CFG</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">LOG</span>
+</code></pre></div>
+
+
+<h2 id="functions">Functions</h2>
+<h3 id="begin_run_group">begin_run_group</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">begin_run_group</span><span class="p">(</span>
+    <span class="n">project</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Begin a run_group in the database.</p>
+<p>A run_group groups a set of runs for a given project. This models a series
+of runs that form a complete binary runtime test.</p>
+<p>Args:
+    project: The project we begin a new run_group for.</p>
+<p>Returns:
+    <code>(group, session)</code> where group is the created group in the
+    database and session is the database session this group lives in.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">begin_run_group</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Begin a run_group in the database.</span>
+
+<span class="sd">    A run_group groups a set of runs for a given project. This models a series</span>
+
+<span class="sd">    of runs that form a complete binary runtime test.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        project: The project we begin a new run_group for.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        ``(group, session)`` where group is the created group in the</span>
+
+<span class="sd">        database and session is the database session this group lives in.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.db</span> <span class="kn">import</span> <span class="n">create_run_group</span>
+
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">group</span><span class="p">,</span> <span class="n">session</span> <span class="o">=</span> <span class="n">create_run_group</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;running&#39;</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">group</span><span class="p">,</span> <span class="n">session</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="end_run_group">end_run_group</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">end_run_group</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span>
+    <span class="n">session</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>End the run_group successfully.</p>
+<p>Args:
+    group: The run_group we want to complete.
+    session: The database transaction we will finish.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">end_run_group</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    End the run_group successfully.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        group: The run_group we want to complete.</span>
+
+<span class="sd">        session: The database transaction we will finish.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;completed&#39;</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="exit_code_from_run_infos">exit_code_from_run_infos</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">exit_code_from_run_infos</span><span class="p">(</span>
+    <span class="n">run_infos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">benchbuild</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">RunInfo</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
+</code></pre></div>
+
+
+<p>Generate a single exit code from a list of RunInfo objects.</p>
+<p>Takes a list of RunInfos and returns the exit code that is furthest away
+from 0.</p>
+<p>Args:
+    run_infos (t.List[RunInfo]): [description]</p>
+<p>Returns:
+    int: [description]</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">exit_code_from_run_infos</span><span class="p">(</span><span class="nl">run_infos</span><span class="p">:</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">List</span><span class="o">[</span><span class="n">RunInfo</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">int</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;Generate a single exit code from a list of RunInfo objects.</span>
+
+<span class="ss">    Takes a list of RunInfos and returns the exit code that is furthest away</span>
+
+<span class="ss">    from 0.</span>
+
+<span class="ss">    Args:</span>
+
+<span class="ss">        run_infos (t.List[RunInfo]): [description]</span>
+
+<span class="ss">    Returns:</span>
+
+<span class="ss">        int: [description]</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">run_infos</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">hasattr</span><span class="p">(</span><span class="n">run_infos</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;__iter__&quot;</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">run_infos</span><span class="p">.</span><span class="n">retcode</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">rcs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">ri.retcode for ri in run_infos</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">max_rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">rcs</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">min_rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">rcs</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">max_rc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">min_rc</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">max_rc</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h3 id="fail_run_group">fail_run_group</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fail_run_group</span><span class="p">(</span>
+    <span class="n">group</span><span class="p">,</span>
+    <span class="n">session</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>End the run_group unsuccessfully.</p>
+<p>Args:
+    group: The run_group we want to complete.
+    session: The database transaction we will finish.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fail_run_group</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    End the run_group unsuccessfully.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        group: The run_group we want to complete.</span>
+
+<span class="sd">        session: The database transaction we will finish.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;failed&#39;</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="in_builddir">in_builddir</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">in_builddir</span><span class="p">(</span>
+    <span class="n">sub</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Decorate a project phase with a local working directory change.</p>
+<p>Args:
+    sub: An optional subdirectory to change into.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">in_builddir</span><span class="p">(</span><span class="n">sub</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Decorate a project phase with a local working directory change.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        sub: An optional subdirectory to change into.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+    <span class="k">def</span> <span class="nf">wrap_in_builddir</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Wrap the function for the new build directory.&quot;&quot;&quot;</span>
+
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">wrap_in_builddir_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+            <span class="sd">&quot;&quot;&quot;The actual function inside the wrapper for the new builddir.&quot;&quot;&quot;</span>
+
+            <span class="n">p</span> <span class="o">=</span> <span class="n">local</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builddir</span><span class="p">)</span> <span class="o">/</span> <span class="n">sub</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> does not exist.&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">local</span><span class="o">.</span><span class="n">cwd</span><span class="p">:</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;CWD already is </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="n">local</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+
+                <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrap_in_builddir_func</span>
+
+    <span class="k">return</span> <span class="n">wrap_in_builddir</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="store_config">store_config</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">store_config</span><span class="p">(</span>
+    <span class="n">func</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Decorator for storing the configuration in the project's builddir.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">store_config</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Decorator for storing the configuration in the project&#39;s builddir.&quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">wrap_store_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Wrapper that contains the actual storage call for the config.&quot;&quot;&quot;</span>
+
+        <span class="n">CFG</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">local</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builddir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;.benchbuild.yml&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrap_store_config</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="track_execution">track_execution</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">track_execution</span><span class="p">(</span>
+    <span class="n">cmd</span><span class="p">,</span>
+    <span class="n">project</span><span class="p">,</span>
+    <span class="n">experiment</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Guard the execution of the given command.</p>
+<p>The given command (<code>cmd</code>) will be executed inside a database context.
+As soon as you leave the context we will commit the transaction.
+Any necessary modifications to the database can be identified inside
+the context with the RunInfo object.</p>
+<p>Args:
+    cmd: The command we guard.
+    project: The project we track for.
+    experiment: The experiment we track for.</p>
+<p>Yields:
+    RunInfo: A context object that carries the necessary
+        database transaction.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="o">@</span><span class="n">contextmanager</span>
+
+<span class="n">def</span> <span class="nf">track_execution</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="s2">&quot;&quot;&quot;Guard the execution of the given command.</span>
+
+<span class="s2">    The given command (`cmd`) will be executed inside a database context.</span>
+
+<span class="s2">    As soon as you leave the context we will commit the transaction.</span>
+
+<span class="s2">    Any necessary modifications to the database can be identified inside</span>
+
+<span class="s2">    the context with the RunInfo object.</span>
+
+<span class="s2">    Args:</span>
+
+<span class="s2">        cmd: The command we guard.</span>
+
+<span class="s2">        project: The project we track for.</span>
+
+<span class="s2">        experiment: The experiment we track for.</span>
+
+<span class="s2">    Yields:</span>
+
+<span class="s2">        RunInfo: A context object that carries the necessary</span>
+
+<span class="s2">            database transaction.</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="n">runner</span> <span class="o">=</span> <span class="nf">RunInfo</span><span class="p">(</span><span class="n">cmd</span><span class="o">=</span><span class="n">cmd</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span> <span class="n">experiment</span><span class="o">=</span><span class="n">experiment</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">yield</span> <span class="n">runner</span>
+
+    <span class="n">runner</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="watch">watch</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">watch</span><span class="p">(</span>
+    <span class="n">command</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Execute a plumbum command, depending on the user's settings.</p>
+<p>Args:
+    command: The plumbumb command to execute.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">watch</span><span class="p">(</span><span class="n">command</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;Execute a plumbum command, depending on the user&#39;s settings.</span>
+
+<span class="ss">    Args:</span>
+
+<span class="ss">        command: The plumbumb command to execute.</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="n">retcode</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">final_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command</span><span class="o">[</span><span class="n">args</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">final_command</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">TEE</span><span class="p">(</span><span class="n">retcode</span><span class="o">=</span><span class="n">retcode</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h3 id="with_env_recursive">with_env_recursive</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">with_env_recursive</span><span class="p">(</span>
+    <span class="n">cmd</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">envvars</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Recursively updates the environment of cmd and all its subcommands.</p>
+<p>Args:
+    cmd - A plumbum command-like object
+    **envvars - The environment variables to update</p>
+<p>Returns:
+    The updated command.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">with_env_recursive</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">envvars</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Recursively updates the environment of cmd and all its subcommands.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        cmd - A plumbum command-like object</span>
+
+<span class="sd">        **envvars - The environment variables to update</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        The updated command.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">plumbum.commands.base</span> <span class="kn">import</span> <span class="n">BoundCommand</span><span class="p">,</span> <span class="n">BoundEnvCommand</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">BoundCommand</span><span class="p">):</span>
+
+        <span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span> <span class="o">=</span> <span class="n">with_env_recursive</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">envvars</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">BoundEnvCommand</span><span class="p">):</span>
+
+        <span class="n">cmd</span><span class="o">.</span><span class="n">envvars</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">envvars</span><span class="p">)</span>
+
+        <span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span> <span class="o">=</span> <span class="n">with_env_recursive</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">envvars</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cmd</span>
+</code></pre></div>
+
+
+</details>
+<h2 id="classes">Classes</h2>
+<h3 id="runinfo">RunInfo</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">RunInfo</span><span class="p">(</span>
+    <span class="n">cmd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">failed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">retcode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">NOTHING</span><span class="p">,</span>
+    <span class="n">stderr</span><span class="o">=</span><span class="n">NOTHING</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Execution context of wrapped binaries.</p>
+<p>Execution of tracked binaries is guarded with this context
+object. In here we store everything about a single binary
+execution for consumption of an experiment.</p>
+<p>Attributes:
+    cmd ():
+    failed ():
+    project ():
+    experiment ():
+    retcode ():
+    stdout ():
+    stderr ():
+    db_run ():
+    session ():</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">RunInfo</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Execution context of wrapped binaries.</span>
+
+<span class="sd">    Execution of tracked binaries is guarded with this context</span>
+
+<span class="sd">    object. In here we store everything about a single binary</span>
+
+<span class="sd">    execution for consumption of an experiment.</span>
+
+<span class="sd">    Attributes:</span>
+
+<span class="sd">        cmd ():</span>
+
+<span class="sd">        failed ():</span>
+
+<span class="sd">        project ():</span>
+
+<span class="sd">        experiment ():</span>
+
+<span class="sd">        retcode ():</span>
+
+<span class="sd">        stdout ():</span>
+
+<span class="sd">        stderr ():</span>
+
+<span class="sd">        db_run ():</span>
+
+<span class="sd">        session ():</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__begin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">ename</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Begin a run in the database log.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">            command: The command that will be executed.</span>
+
+<span class="sd">            pname: The project name we belong to.</span>
+
+<span class="sd">            ename: The experiment name we belong to.</span>
+
+<span class="sd">            group: The run group we belong to.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            (run, session), where run is the generated run instance and</span>
+
+<span class="sd">            session the associated transaction for later use.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils.db</span> <span class="kn">import</span> <span class="n">create_run</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils</span> <span class="kn">import</span> <span class="n">schema</span> <span class="k">as</span> <span class="n">s</span>
+
+        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+        <span class="n">db_run</span><span class="p">,</span> <span class="n">session</span> <span class="o">=</span> <span class="n">create_run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">ename</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+
+        <span class="n">db_run</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">db_run</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;running&#39;</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">RunLog</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">run_id</span> <span class="o">=</span> <span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">CFG</span><span class="p">)</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">db_run</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span> <span class="o">=</span> <span class="n">db_run</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
+
+    <span class="k">def</span> <span class="nf">__end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        End a run in the database log (Successfully).</span>
+
+<span class="sd">        This will persist the log information in the database and commit the</span>
+
+<span class="sd">        transaction.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">            db_run: The ``run`` schema object we belong to</span>
+
+<span class="sd">            session: The db transaction we belong to.</span>
+
+<span class="sd">            stdout: The stdout we captured of the run.</span>
+
+<span class="sd">            stderr: The stderr we capture of the run.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils.schema</span> <span class="kn">import</span> <span class="n">RunLog</span>
+
+        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+        <span class="n">run_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RunLog</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RunLog</span><span class="o">.</span><span class="n">run_id</span> <span class="o">==</span> <span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;completed&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__fail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">retcode</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        End a run in the database log (Unsuccessfully).</span>
+
+<span class="sd">        This will persist the log information in the database and commit the</span>
+
+<span class="sd">        transaction.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">            db_run: The ``run`` schema object we belong to</span>
+
+<span class="sd">            session: The db transaction we belong to.</span>
+
+<span class="sd">            retcode: The return code we captured of the run.</span>
+
+<span class="sd">            stdout: The stdout we captured of the run.</span>
+
+<span class="sd">            stderr: The stderr we capture of the run.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">benchbuild.utils.schema</span> <span class="kn">import</span> <span class="n">RunLog</span>
+
+        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+        <span class="n">run_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RunLog</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RunLog</span><span class="o">.</span><span class="n">run_id</span> <span class="o">==</span> <span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">retcode</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;failed&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="p">)</span>
+
+    <span class="n">cmd</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">failed</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">project</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">experiment</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">retcode</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">stdout</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">attr</span><span class="o">.</span><span class="n">Factory</span><span class="p">(</span><span class="nb">list</span><span class="p">),</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">stderr</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">attr</span><span class="o">.</span><span class="n">Factory</span><span class="p">(</span><span class="nb">list</span><span class="p">),</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">db_run</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+    <span class="n">session</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__attrs_post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__begin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+
+                     <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">run_uuid</span><span class="p">)</span>
+
+        <span class="n">signals</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;SIGTERM&quot;</span><span class="p">,</span> <span class="s2">&quot;SIGTERM&quot;</span><span class="p">)</span>
+
+        <span class="n">run_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_run</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">settings</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">][</span><span class="s2">&quot;run_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_id</span>
+
+    <span class="k">def</span> <span class="nf">add_payload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">payload</span><span class="p">:</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">payload</span><span class="p">}</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">payload</span><span class="p">})</span>
+
+    <span class="nd">@property</span>
+
+    <span class="k">def</span> <span class="nf">has_failed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Check, whether this run failed.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">failed</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">expected_retcode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">cmd_env</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">to_env_dict</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="n">local</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="o">**</span><span class="n">cmd_env</span><span class="p">):</span>
+
+            <span class="k">try</span><span class="p">:</span>
+
+                <span class="n">bin_name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="n">retcode</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> \
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span> <span class="o">&amp;</span> <span class="n">TEE</span><span class="p">(</span><span class="n">retcode</span><span class="o">=</span><span class="n">expected_retcode</span><span class="p">)</span>
+
+                <span class="n">f_stdout</span> <span class="o">=</span> <span class="n">bin_name</span> <span class="o">+</span> <span class="s2">&quot;.stdout&quot;</span>
+
+                <span class="n">f_stderr</span> <span class="o">=</span> <span class="n">bin_name</span> <span class="o">+</span> <span class="s2">&quot;.stderr&quot;</span>
+
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_stdout</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd_stdout</span><span class="p">:</span>
+
+                    <span class="n">fd_stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stdout</span><span class="p">)</span>
+
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_stderr</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd_stderr</span><span class="p">:</span>
+
+                    <span class="n">fd_stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">retcode</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__end</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">stdout</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">stderr</span><span class="p">))</span>
+
+            <span class="k">except</span> <span class="n">ProcessExecutionError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">retcode</span><span class="p">,</span> <span class="n">ex</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">ex</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">retcode</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">stdout</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">stderr</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Tracked process failed&quot;</span><span class="p">)</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+
+            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">retcode</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;KeyboardInterrupt&quot;</span><span class="p">)</span>
+
+                <span class="n">LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Interrupted by user input&quot;</span><span class="p">)</span>
+
+                <span class="k">raise</span>
+
+            <span class="k">finally</span><span class="p">:</span>
+
+                <span class="n">signals</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fail</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+<hr />
+<h4 id="class-variables">Class variables</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">cmd</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">db_run</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">experiment</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">failed</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">payload</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">project</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">retcode</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">session</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">stderr</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">stdout</span>
+</code></pre></div>
+
+
+<h4 id="instance-variables">Instance variables</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">has_failed</span>
+</code></pre></div>
+
+
+<p>Check, whether this run failed.</p>
+<h4 id="methods">Methods</h4>
+<h5 id="add_payload">add_payload</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">add_payload</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">,</span>
+    <span class="n">payload</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">add_payload</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="k">self</span> <span class="o">==</span> <span class="n">payload</span><span class="p">:</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="k">not</span> <span class="k">self</span><span class="p">.</span><span class="n">payload</span><span class="p">:</span>
+
+            <span class="k">self</span><span class="p">.</span><span class="n">payload</span> <span class="o">=</span> <span class="err">{</span><span class="n">name</span><span class="p">:</span> <span class="n">payload</span><span class="err">}</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">self</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="k">update</span><span class="p">(</span><span class="err">{</span><span class="n">name</span><span class="p">:</span> <span class="n">payload</span><span class="err">}</span><span class="p">)</span>
+</code></pre></div>
+
+
+</details>
+<h5 id="commit">commit</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">commit</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="k">commit</span><span class="p">(</span><span class="k">self</span><span class="p">):</span>
+
+        <span class="k">self</span><span class="p">.</span><span class="k">session</span><span class="p">.</span><span class="k">commit</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../requirements/" title="Requirements" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Requirements
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../schedule_tree/" title="Schedule Tree" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Schedule Tree
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.a14cc5fd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7a2ea5ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2962 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.0">
+    
+    
+      
+        <title>Path - benchbuild</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6e35a1a6.min.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-benchbuildutilspath" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="benchbuild" class="md-header-nav__button md-logo" aria-label="benchbuild">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            benchbuild
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Path
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/PolyJIT/benchbuild/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    benchbuild
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="benchbuild" class="md-nav__button md-logo" aria-label="benchbuild">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    benchbuild
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/PolyJIT/benchbuild/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    benchbuild
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Benchbuild
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Benchbuild" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Benchbuild
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../driver/" title="Driver" class="md-nav__link">
+      Driver
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiment/" title="Experiment" class="md-nav__link">
+      Experiment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../likwid/" title="Likwid" class="md-nav__link">
+      Likwid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../project/" title="Project" class="md-nav__link">
+      Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../settings/" title="Settings" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../signals/" title="Signals" class="md-nav__link">
+      Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/" title="Statistics" class="md-nav__link">
+      Statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-10" type="checkbox" id="nav-2-1-10">
+    
+    <label class="md-nav__link" for="nav-2-1-10">
+      CLI
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="CLI" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        CLI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/bootstrap/" title="Bootstrap" class="md-nav__link">
+      Bootstrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/config/" title="Config" class="md-nav__link">
+      Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/experiment/" title="Experiment" class="md-nav__link">
+      Experiment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/main/" title="Main" class="md-nav__link">
+      Main
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/project/" title="Project" class="md-nav__link">
+      Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/report/" title="Report" class="md-nav__link">
+      Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/run/" title="Run" class="md-nav__link">
+      Run
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cli/slurm/" title="Slurm" class="md-nav__link">
+      Slurm
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-11" type="checkbox" id="nav-2-1-11">
+    
+    <label class="md-nav__link" for="nav-2-1-11">
+      Db
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Db" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Db
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/manage/" title="Manage" class="md-nav__link">
+      Manage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-11-3" type="checkbox" id="nav-2-1-11-3">
+    
+    <label class="md-nav__link" for="nav-2-1-11-3">
+      Versions
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Versions" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-11-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Versions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/001_Remove_RegressionTest_table/" title="001 Remove Regressiontest Table" class="md-nav__link">
+      001 Remove Regressiontest Table
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/002_Remove_GlobalConfig_table/" title="002 Remove Globalconfig Table" class="md-nav__link">
+      002 Remove Globalconfig Table
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/003_Unmanage_Events/" title="003 Unmanage Events" class="md-nav__link">
+      003 Unmanage Events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../db/versions/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-12" type="checkbox" id="nav-2-1-12">
+    
+    <label class="md-nav__link" for="nav-2-1-12">
+      Experiments
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Experiments" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Experiments
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiments/empty/" title="Empty" class="md-nav__link">
+      Empty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiments/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../experiments/raw/" title="Raw" class="md-nav__link">
+      Raw
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-13" type="checkbox" id="nav-2-1-13">
+    
+    <label class="md-nav__link" for="nav-2-1-13">
+      Extensions
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Extensions" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-13">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Extensions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/base/" title="Base" class="md-nav__link">
+      Base
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/compiler/" title="Compiler" class="md-nav__link">
+      Compiler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/run/" title="Run" class="md-nav__link">
+      Run
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extensions/time/" title="Time" class="md-nav__link">
+      Time
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14" type="checkbox" id="nav-2-1-14">
+    
+    <label class="md-nav__link" for="nav-2-1-14">
+      Projects
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Projects" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-14">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-2" type="checkbox" id="nav-2-1-14-2">
+    
+    <label class="md-nav__link" for="nav-2-1-14-2">
+      Apollo
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Apollo" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Apollo
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/apollo/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/apollo/rodinia/" title="Rodinia" class="md-nav__link">
+      Rodinia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/apollo/scimark/" title="Scimark" class="md-nav__link">
+      Scimark
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-3" type="checkbox" id="nav-2-1-14-3">
+    
+    <label class="md-nav__link" for="nav-2-1-14-3">
+      Benchbuild
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Benchbuild" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Benchbuild
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/bots/" title="Bots" class="md-nav__link">
+      Bots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/bzip2/" title="Bzip2" class="md-nav__link">
+      Bzip2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/ccrypt/" title="Ccrypt" class="md-nav__link">
+      Ccrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/crafty/" title="Crafty" class="md-nav__link">
+      Crafty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/crocopat/" title="Crocopat" class="md-nav__link">
+      Crocopat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/ffmpeg/" title="Ffmpeg" class="md-nav__link">
+      Ffmpeg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/gzip/" title="Gzip" class="md-nav__link">
+      Gzip
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/js/" title="Js" class="md-nav__link">
+      Js
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/lammps/" title="Lammps" class="md-nav__link">
+      Lammps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/lapack/" title="Lapack" class="md-nav__link">
+      Lapack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/leveldb/" title="Leveldb" class="md-nav__link">
+      Leveldb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/linpack/" title="Linpack" class="md-nav__link">
+      Linpack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/lulesh/" title="Lulesh" class="md-nav__link">
+      Lulesh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/mcrypt/" title="Mcrypt" class="md-nav__link">
+      Mcrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/minisat/" title="Minisat" class="md-nav__link">
+      Minisat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/openssl/" title="Openssl" class="md-nav__link">
+      Openssl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/povray/" title="Povray" class="md-nav__link">
+      Povray
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/rasdaman/" title="Rasdaman" class="md-nav__link">
+      Rasdaman
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/ruby/" title="Ruby" class="md-nav__link">
+      Ruby
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/sdcc/" title="Sdcc" class="md-nav__link">
+      Sdcc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/sevenz/" title="Sevenz" class="md-nav__link">
+      Sevenz
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/sqlite3/" title="Sqlite3" class="md-nav__link">
+      Sqlite3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/tcc/" title="Tcc" class="md-nav__link">
+      Tcc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/x264/" title="X264" class="md-nav__link">
+      X264
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/benchbuild/xz/" title="Xz" class="md-nav__link">
+      Xz
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-4" type="checkbox" id="nav-2-1-14-4">
+    
+    <label class="md-nav__link" for="nav-2-1-14-4">
+      Gentoo
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Gentoo" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Gentoo
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/autoportage/" title="Autoportage" class="md-nav__link">
+      Autoportage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/bzip2/" title="Bzip2" class="md-nav__link">
+      Bzip2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/crafty/" title="Crafty" class="md-nav__link">
+      Crafty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/eix/" title="Eix" class="md-nav__link">
+      Eix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/gentoo/" title="Gentoo" class="md-nav__link">
+      Gentoo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/gzip/" title="Gzip" class="md-nav__link">
+      Gzip
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/info/" title="Info" class="md-nav__link">
+      Info
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/lammps/" title="Lammps" class="md-nav__link">
+      Lammps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/portage_gen/" title="Portage Gen" class="md-nav__link">
+      Portage Gen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/postgresql/" title="Postgresql" class="md-nav__link">
+      Postgresql
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/sevenz/" title="Sevenz" class="md-nav__link">
+      Sevenz
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/x264/" title="X264" class="md-nav__link">
+      X264
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/gentoo/xz/" title="Xz" class="md-nav__link">
+      Xz
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-5" type="checkbox" id="nav-2-1-14-5">
+    
+    <label class="md-nav__link" for="nav-2-1-14-5">
+      Lnt
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Lnt" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Lnt
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/lnt/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/lnt/lnt/" title="Lnt" class="md-nav__link">
+      Lnt
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-6" type="checkbox" id="nav-2-1-14-6">
+    
+    <label class="md-nav__link" for="nav-2-1-14-6">
+      Polybench
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Polybench" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Polybench
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/polybench/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/polybench/polybench-mod/" title="Polybench Mod" class="md-nav__link">
+      Polybench Mod
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/polybench/polybench/" title="Polybench" class="md-nav__link">
+      Polybench
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-7" type="checkbox" id="nav-2-1-14-7">
+    
+    <label class="md-nav__link" for="nav-2-1-14-7">
+      Test
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Test" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-1-14-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Test
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/test/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/test/test/" title="Test" class="md-nav__link">
+      Test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-15" type="checkbox" id="nav-2-1-15">
+    
+    <label class="md-nav__link" for="nav-2-1-15">
+      Reports
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Reports" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-15">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Reports
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reports/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reports/raw/" title="Raw" class="md-nav__link">
+      Raw
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reports/status/" title="Status" class="md-nav__link">
+      Status
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-16" type="checkbox" id="nav-2-1-16" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-16">
+      Utils
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Utils" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-16">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Utils
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../actions/" title="Actions" class="md-nav__link">
+      Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bootstrap/" title="Bootstrap" class="md-nav__link">
+      Bootstrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../compiler/" title="Compiler" class="md-nav__link">
+      Compiler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../db/" title="Db" class="md-nav__link">
+      Db
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dict/" title="Dict" class="md-nav__link">
+      Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Path
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Path" class="md-nav__link md-nav__link--active">
+      Path
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determine_path" class="md-nav__link">
+    determine_path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flocked" class="md-nav__link">
+    flocked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list_to_path" class="md-nav__link">
+    list_to_path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir_interactive" class="md-nav__link">
+    mkdir_interactive
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir_uchroot" class="md-nav__link">
+    mkdir_uchroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfile_uchroot" class="md-nav__link">
+    mkfile_uchroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path_to_list" class="md-nav__link">
+    path_to_list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_files" class="md-nav__link">
+    template_files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_path" class="md-nav__link">
+    template_path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_str" class="md-nav__link">
+    template_str
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../progress/" title="Progress" class="md-nav__link">
+      Progress
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../requirements/" title="Requirements" class="md-nav__link">
+      Requirements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run/" title="Run" class="md-nav__link">
+      Run
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../schedule_tree/" title="Schedule Tree" class="md-nav__link">
+      Schedule Tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../schema/" title="Schema" class="md-nav__link">
+      Schema
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../settings/" title="Settings" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../slurm/" title="Slurm" class="md-nav__link">
+      Slurm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tasks/" title="Tasks" class="md-nav__link">
+      Tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uchroot/" title="Uchroot" class="md-nav__link">
+      Uchroot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../unionfs/" title="Unionfs" class="md-nav__link">
+      Unionfs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../user_interface/" title="User Interface" class="md-nav__link">
+      User Interface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../versions/" title="Versions" class="md-nav__link">
+      Versions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wrapping/" title="Wrapping" class="md-nav__link">
+      Wrapping
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determine_path" class="md-nav__link">
+    determine_path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flocked" class="md-nav__link">
+    flocked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list_to_path" class="md-nav__link">
+    list_to_path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir_interactive" class="md-nav__link">
+    mkdir_interactive
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir_uchroot" class="md-nav__link">
+    mkdir_uchroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfile_uchroot" class="md-nav__link">
+    mkfile_uchroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path_to_list" class="md-nav__link">
+    path_to_list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_files" class="md-nav__link">
+    template_files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_path" class="md-nav__link">
+    template_path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template_str" class="md-nav__link">
+    template_str
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/PolyJIT/benchbuild/edit/master/reference/benchbuild/utils/path.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="module-benchbuildutilspath">Module benchbuild.utils.path</h1>
+<p>Path utilities for benchbuild. </p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot; Path utilities for benchbuild. &quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">fcntl</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="kn">import</span> <span class="nn">benchbuild.utils.user_interface</span> <span class="kn">as</span> <span class="nn">ui</span>
+
+<span class="k">def</span> <span class="nf">list_to_path</span><span class="p">(</span><span class="n">pathlist</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Convert a list of path elements to a path string.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">pathsep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pathlist</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">path_to_list</span><span class="p">(</span><span class="n">pathstr</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Conver a path string to a list of path elements.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">pathstr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">pathsep</span><span class="p">)</span> <span class="k">if</span> <span class="n">elem</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">determine_path</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;Borrowed from wxglade.py&quot;&quot;&quot;</span>
+
+    <span class="n">root</span> <span class="o">=</span> <span class="vm">__file__</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">islink</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+
+        <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">template_files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exts</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Return a list of filenames found at @path.</span>
+
+<span class="sd">    The list of filenames can be filtered by extensions.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        path: Existing filepath we want to list.</span>
+
+<span class="sd">        exts: List of extensions to filter by.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        A list of filenames found in the path.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+
+        <span class="n">_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">determine_path</span><span class="p">(),</span> <span class="n">path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_path</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">_path</span><span class="p">)):</span>
+
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">exts</span><span class="p">:</span>
+
+        <span class="n">exts</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">_path</span><span class="p">)</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">exts</span><span class="p">]</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">files</span>
+
+<span class="k">def</span> <span class="nf">template_path</span><span class="p">(</span><span class="n">template</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Return path to template file.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">determine_path</span><span class="p">(),</span> <span class="n">template</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">template_str</span><span class="p">(</span><span class="n">template</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Read a template file from the resources and return it as str.&quot;&quot;&quot;</span>
+
+    <span class="n">tmpl_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">determine_path</span><span class="p">(),</span> <span class="n">template</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmpl_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tmpl_strm</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpl_strm</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">mkfile_uchroot</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create a file inside a uchroot env.</span>
+
+<span class="sd">    You will want to use this when you need to create a file with apropriate</span>
+
+<span class="sd">    rights inside a uchroot container with subuid/subgid handling enabled.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        filepath:</span>
+
+<span class="sd">            The filepath that should be created. Absolute inside the</span>
+
+<span class="sd">            uchroot container.</span>
+
+<span class="sd">        root:</span>
+
+<span class="sd">            The root PATH of the container filesystem as seen outside of</span>
+
+<span class="sd">            the container.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.uchroot</span> <span class="kn">import</span> <span class="n">no_args</span><span class="p">,</span> <span class="n">uretry</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">no_args</span><span class="p">()</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;-E&quot;</span><span class="p">,</span> <span class="s2">&quot;-A&quot;</span><span class="p">,</span> <span class="s2">&quot;-C&quot;</span><span class="p">,</span> <span class="s2">&quot;-w&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-r&quot;</span><span class="p">]</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root</span><span class="p">)]</span>
+
+    <span class="n">uretry</span><span class="p">(</span><span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;/bin/touch&quot;</span><span class="p">,</span> <span class="n">filepath</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">mkdir_uchroot</span><span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create a file inside a uchroot env.</span>
+
+<span class="sd">    You will want to use this when you need to create a file with apropriate</span>
+
+<span class="sd">    rights inside a uchroot container with subuid/subgid handling enabled.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        dirpath:</span>
+
+<span class="sd">            The dirpath that should be created. Absolute inside the</span>
+
+<span class="sd">            uchroot container.</span>
+
+<span class="sd">        root:</span>
+
+<span class="sd">            The root PATH of the container filesystem as seen outside of</span>
+
+<span class="sd">            the container.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.uchroot</span> <span class="kn">import</span> <span class="n">no_args</span><span class="p">,</span> <span class="n">uretry</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">no_args</span><span class="p">()</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;-E&quot;</span><span class="p">,</span> <span class="s2">&quot;-A&quot;</span><span class="p">,</span> <span class="s2">&quot;-C&quot;</span><span class="p">,</span> <span class="s2">&quot;-w&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-r&quot;</span><span class="p">]</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root</span><span class="p">)]</span>
+
+    <span class="n">uretry</span><span class="p">(</span><span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;/bin/mkdir&quot;</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="n">dirpath</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">mkdir_interactive</span><span class="p">(</span><span class="n">dirpath</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create a directory if required.</span>
+
+<span class="sd">    This will query the user for a confirmation.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        dirname: The path to create.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.cmd</span> <span class="kn">import</span> <span class="n">mkdir</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dirpath</span><span class="p">):</span>
+
+        <span class="k">return</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="s2">&quot;The directory {dirname} does not exist yet. &quot;</span>
+
+                      <span class="s2">&quot;Should I create it?&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dirname</span><span class="o">=</span><span class="n">dirpath</span><span class="p">),</span>
+
+                      <span class="n">default_answer</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+
+                      <span class="n">default_answer_str</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="p">:</span>
+
+        <span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="n">dirpath</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Created directory {0}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dirpath</span><span class="p">))</span>
+
+<span class="nd">@contextmanager</span>
+
+<span class="k">def</span> <span class="nf">flocked</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lock_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">fcntl</span><span class="o">.</span><span class="n">LOCK_EX</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Lock a section using fcntl.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        filename: the file to lock against.</span>
+
+<span class="sd">                  A file descriptor is opened in</span>
+
+<span class="sd">                  append mode to this path.</span>
+
+<span class="sd">        lock_type: one of fcntl&#39;s lock operations</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        the opened file descriptor we hold the lock for.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="n">fcntl</span><span class="o">.</span><span class="n">flock</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">lock_type</span><span class="p">)</span>
+
+            <span class="k">yield</span> <span class="n">fd</span>
+
+        <span class="k">finally</span><span class="p">:</span>
+
+            <span class="n">fcntl</span><span class="o">.</span><span class="n">flock</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">fcntl</span><span class="o">.</span><span class="n">LOCK_UN</span><span class="p">)</span>
+</code></pre></div>
+
+
+</details>
+<h2 id="functions">Functions</h2>
+<h3 id="determine_path">determine_path</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">determine_path</span><span class="p">(</span>
+
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Borrowed from wxglade.py</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">determine_path</span><span class="p">():</span>
+
+    <span class="ss">&quot;&quot;&quot;Borrowed from wxglade.py&quot;&quot;&quot;</span>
+
+    <span class="n">root</span> <span class="o">=</span> <span class="n">__file__</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">islink</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+
+        <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="flocked">flocked</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">flocked</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">lock_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Lock a section using fcntl.</p>
+<p>Args:
+    filename: the file to lock against.
+              A file descriptor is opened in
+              append mode to this path.
+    lock_type: one of fcntl's lock operations</p>
+<p>Returns:
+    the opened file descriptor we hold the lock for.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="nv">@contextmanager</span><span class="w"></span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">flocked</span><span class="p">(</span><span class="nl">filename</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">,</span><span class="w"> </span><span class="nl">lock_type</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fcntl</span><span class="p">.</span><span class="n">LOCK_EX</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Lock a section using fcntl.</span>
+
+<span class="ss">    Args:</span>
+
+<span class="ss">        filename: the file to lock against.</span>
+
+<span class="ss">                  A file descriptor is opened in</span>
+
+<span class="ss">                  append mode to this path.</span>
+
+<span class="ss">        lock_type: one of fcntl&#39;s lock operations</span>
+
+<span class="ss">    Returns:</span>
+
+<span class="ss">        the opened file descriptor we hold the lock for.</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">with</span><span class="w"> </span><span class="k">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nl">fd</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">try</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">fcntl</span><span class="p">.</span><span class="n">flock</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">lock_type</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">yield</span><span class="w"> </span><span class="n">fd</span><span class="w"></span>
+
+<span class="w">        </span><span class="nl">finally</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">fcntl</span><span class="p">.</span><span class="n">flock</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">fcntl</span><span class="p">.</span><span class="n">LOCK_UN</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h3 id="list_to_path">list_to_path</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">list_to_path</span><span class="p">(</span>
+    <span class="n">pathlist</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Convert a list of path elements to a path string.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">list_to_path</span><span class="p">(</span><span class="n">pathlist</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;Convert a list of path elements to a path string.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">pathsep</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">pathlist</span><span class="p">)</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="mkdir_interactive">mkdir_interactive</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mkdir_interactive</span><span class="p">(</span>
+    <span class="n">dirpath</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Create a directory if required.</p>
+<p>This will query the user for a confirmation.</p>
+<p>Args:
+    dirname: The path to create.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mkdir_interactive</span><span class="p">(</span><span class="n">dirpath</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create a directory if required.</span>
+
+<span class="sd">    This will query the user for a confirmation.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        dirname: The path to create.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.cmd</span> <span class="kn">import</span> <span class="n">mkdir</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dirpath</span><span class="p">):</span>
+
+        <span class="k">return</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">ask</span><span class="p">(</span><span class="s2">&quot;The directory {dirname} does not exist yet. &quot;</span>
+
+                      <span class="s2">&quot;Should I create it?&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dirname</span><span class="o">=</span><span class="n">dirpath</span><span class="p">),</span>
+
+                      <span class="n">default_answer</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+
+                      <span class="n">default_answer_str</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="p">:</span>
+
+        <span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="n">dirpath</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Created directory {0}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dirpath</span><span class="p">))</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="mkdir_uchroot">mkdir_uchroot</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mkdir_uchroot</span><span class="p">(</span>
+    <span class="n">dirpath</span><span class="p">,</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Create a file inside a uchroot env.</p>
+<p>You will want to use this when you need to create a file with apropriate
+rights inside a uchroot container with subuid/subgid handling enabled.</p>
+<p>Args:
+    dirpath:
+        The dirpath that should be created. Absolute inside the
+        uchroot container.
+    root:
+        The root PATH of the container filesystem as seen outside of
+        the container.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mkdir_uchroot</span><span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create a file inside a uchroot env.</span>
+
+<span class="sd">    You will want to use this when you need to create a file with apropriate</span>
+
+<span class="sd">    rights inside a uchroot container with subuid/subgid handling enabled.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        dirpath:</span>
+
+<span class="sd">            The dirpath that should be created. Absolute inside the</span>
+
+<span class="sd">            uchroot container.</span>
+
+<span class="sd">        root:</span>
+
+<span class="sd">            The root PATH of the container filesystem as seen outside of</span>
+
+<span class="sd">            the container.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.uchroot</span> <span class="kn">import</span> <span class="n">no_args</span><span class="p">,</span> <span class="n">uretry</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">no_args</span><span class="p">()</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;-E&quot;</span><span class="p">,</span> <span class="s2">&quot;-A&quot;</span><span class="p">,</span> <span class="s2">&quot;-C&quot;</span><span class="p">,</span> <span class="s2">&quot;-w&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-r&quot;</span><span class="p">]</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root</span><span class="p">)]</span>
+
+    <span class="n">uretry</span><span class="p">(</span><span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;/bin/mkdir&quot;</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="n">dirpath</span><span class="p">])</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="mkfile_uchroot">mkfile_uchroot</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mkfile_uchroot</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="p">,</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Create a file inside a uchroot env.</p>
+<p>You will want to use this when you need to create a file with apropriate
+rights inside a uchroot container with subuid/subgid handling enabled.</p>
+<p>Args:
+    filepath:
+        The filepath that should be created. Absolute inside the
+        uchroot container.
+    root:
+        The root PATH of the container filesystem as seen outside of
+        the container.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mkfile_uchroot</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create a file inside a uchroot env.</span>
+
+<span class="sd">    You will want to use this when you need to create a file with apropriate</span>
+
+<span class="sd">    rights inside a uchroot container with subuid/subgid handling enabled.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        filepath:</span>
+
+<span class="sd">            The filepath that should be created. Absolute inside the</span>
+
+<span class="sd">            uchroot container.</span>
+
+<span class="sd">        root:</span>
+
+<span class="sd">            The root PATH of the container filesystem as seen outside of</span>
+
+<span class="sd">            the container.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">benchbuild.utils.uchroot</span> <span class="kn">import</span> <span class="n">no_args</span><span class="p">,</span> <span class="n">uretry</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">no_args</span><span class="p">()</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;-E&quot;</span><span class="p">,</span> <span class="s2">&quot;-A&quot;</span><span class="p">,</span> <span class="s2">&quot;-C&quot;</span><span class="p">,</span> <span class="s2">&quot;-w&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-r&quot;</span><span class="p">]</span>
+
+    <span class="n">uchroot</span> <span class="o">=</span> <span class="n">uchroot</span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root</span><span class="p">)]</span>
+
+    <span class="n">uretry</span><span class="p">(</span><span class="n">uchroot</span><span class="p">[</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;/bin/touch&quot;</span><span class="p">,</span> <span class="n">filepath</span><span class="p">])</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="path_to_list">path_to_list</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">path_to_list</span><span class="p">(</span>
+    <span class="n">pathstr</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Conver a path string to a list of path elements.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">path_to_list</span><span class="p">(</span><span class="n">pathstr</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;Conver a path string to a list of path elements.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="k">in</span> <span class="n">pathstr</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">pathsep</span><span class="p">)</span> <span class="k">if</span> <span class="n">elem</span><span class="p">]</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="template_files">template_files</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">template_files</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">,</span>
+    <span class="n">exts</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Return a list of filenames found at @path.</p>
+<p>The list of filenames can be filtered by extensions.</p>
+<p>Arguments:
+    path: Existing filepath we want to list.
+    exts: List of extensions to filter by.</p>
+<p>Returns:
+    A list of filenames found in the path.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">template_files</span><span class="p">(</span><span class="k">path</span><span class="p">,</span><span class="w"> </span><span class="n">exts</span><span class="o">=</span><span class="k">None</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Return a list of filenames found at @path.</span>
+
+<span class="ss">    The list of filenames can be filtered by extensions.</span>
+
+<span class="ss">    Arguments:</span>
+
+<span class="ss">        path: Existing filepath we want to list.</span>
+
+<span class="ss">        exts: List of extensions to filter by.</span>
+
+<span class="ss">    Returns:</span>
+
+<span class="ss">        A list of filenames found in the path.</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="n">isabs</span><span class="p">(</span><span class="k">path</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">determine_path</span><span class="p">(),</span><span class="w"> </span><span class="k">path</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="ow">exists</span><span class="p">(</span><span class="n">_path</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">_path</span><span class="p">))</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="err">[]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nl">exts</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">exts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">[]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">_path</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">f for f in files if os.path.splitext(f)[-1</span><span class="o">]</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">exts</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">os.path.join(path, f) for f in files</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">files</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h3 id="template_path">template_path</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">template_path</span><span class="p">(</span>
+    <span class="n">template</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Return path to template file.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">template_path</span><span class="p">(</span><span class="k">template</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;Return path to template file.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">determine_path</span><span class="p">(),</span> <span class="k">template</span><span class="p">)</span>
+</code></pre></div>
+
+
+</details>
+<h3 id="template_str">template_str</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">template_str</span><span class="p">(</span>
+    <span class="n">template</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Read a template file from the resources and return it as str.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">template_str</span><span class="p">(</span><span class="k">template</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;Read a template file from the resources and return it as str.&quot;&quot;&quot;</span>
+
+    <span class="n">tmpl_file</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">determine_path</span><span class="p">(),</span> <span class="k">template</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="k">open</span><span class="p">(</span><span class="n">tmpl_file</span><span class="p">,</span> <span class="k">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tmpl_strm</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="ss">&quot;&quot;</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">tmpl_strm</span><span class="p">.</span><span class="n">readlines</span><span class="p">())</span>
+</code></pre></div>
+
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../log/" title="Log" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Log
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../progress/" title="Progress" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Progress
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.a14cc5fd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7a2ea5ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
