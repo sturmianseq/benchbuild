@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="simbuerg">
+  <link rel="canonical" href="https://polyjit.github.io/benchbuild/api/benchbuild/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>benchbuild - BenchBuild</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/mkapi-common.css" rel="stylesheet" />
+  <link href="../../css/mkapi-readthedocs.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css" rel="stylesheet" />
+  <link href="../../css/pheasant.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "benchbuild";
+    var mkdocs_page_input_path = "api/benchbuild.md";
+    var mkdocs_page_url = "/benchbuild/api/benchbuild/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BenchBuild</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">BenchBuild Documentation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../basics/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../basics/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Concepts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/source/">Source</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/environments/">Environment</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/projects/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/experiments/">Experiment</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Advanced Usage</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/">TODO</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">benchbuild</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">benchbuild</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildlikwid">likwid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildplugins">plugins</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildsettings">settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildprojects">projects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainer">container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildproject">project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildengine">engine</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildexperiments">experiments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcli">cli</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildutils">utils</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildsource">source</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildstatistics">statistics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildexperiment">experiment</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.likwid/">benchbuild.likwid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.extensions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.extensions/">benchbuild.extensions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.extensions.base/">benchbuild.extensions.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.plugins/">benchbuild.plugins</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.db.versions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions/">benchbuild.db.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.002_Remove_GlobalConfig_table/">benchbuild.db.versions.002_Remove_GlobalConfig_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.001_Remove_RegressionTest_table/">benchbuild.db.versions.001_Remove_RegressionTest_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.003_Unmanage_Events/">benchbuild.db.versions.003_Unmanage_Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.settings/">benchbuild.settings</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects/">benchbuild.projects</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.gentoo</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo/">benchbuild.projects.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.lammps/">benchbuild.projects.gentoo.lammps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.xz/">benchbuild.projects.gentoo.xz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.info/">benchbuild.projects.gentoo.info</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.crafty/">benchbuild.projects.gentoo.crafty</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.eix/">benchbuild.projects.gentoo.eix</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.portage_gen/">benchbuild.projects.gentoo.portage_gen</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.gentoo/">benchbuild.projects.gentoo.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.gzip/">benchbuild.projects.gentoo.gzip</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.postgresql/">benchbuild.projects.gentoo.postgresql</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.x264/">benchbuild.projects.gentoo.x264</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.sevenz/">benchbuild.projects.gentoo.sevenz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.bzip2/">benchbuild.projects.gentoo.bzip2</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.lnt</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.lnt/">benchbuild.projects.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.lnt.lnt/">benchbuild.projects.lnt.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.container/">benchbuild.container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.project/">benchbuild.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.engine/">benchbuild.engine</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.experiments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments/">benchbuild.experiments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments.raw/">benchbuild.experiments.raw</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments.empty/">benchbuild.experiments.empty</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.environments.domain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.environments.domain/">benchbuild.environments.domain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.environments.domain.declarative/">benchbuild.environments.domain.declarative</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.cli</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli/">benchbuild.cli</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.experiment/">benchbuild.cli.experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.slurm/">benchbuild.cli.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.main/">benchbuild.cli.main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.log/">benchbuild.cli.log</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.run/">benchbuild.cli.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.project/">benchbuild.cli.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.config/">benchbuild.cli.config</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils/">benchbuild.utils</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.revision_ranges/">benchbuild.utils.revision_ranges</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.slurm/">benchbuild.utils.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.tasks/">benchbuild.utils.tasks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.bootstrap/">benchbuild.utils.bootstrap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.wrapping/">benchbuild.utils.wrapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.container/">benchbuild.utils.container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.download/">benchbuild.utils.download</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.dict/">benchbuild.utils.dict</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.db/">benchbuild.utils.db</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.settings/">benchbuild.utils.settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.schema/">benchbuild.utils.schema</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.versions/">benchbuild.utils.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.schedule_tree/">benchbuild.utils.schedule_tree</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.run/">benchbuild.utils.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.path/">benchbuild.utils.path</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.compiler/">benchbuild.utils.compiler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.actions/">benchbuild.utils.actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.user_interface/">benchbuild.utils.user_interface</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.source</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source/">benchbuild.source</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.http/">benchbuild.source.http</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.git/">benchbuild.source.git</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.base/">benchbuild.source.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.statistics/">benchbuild.statistics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiment/">benchbuild.experiment</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release Notes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BenchBuild</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>benchbuild &raquo;</li>
+        
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>benchbuild</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                
+<div class="mkapi-node" id="benchbuild">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object package plain top">
+    <div class="mkapi-object-kind package top">package</div>
+    <h1 id="benchbuild" class="mkapi-object-body package top"><span class="mkapi-object-name">benchbuild</span></h1>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild/#benchbuild" title="Source for benchbuild">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Public API of benchbuild.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.likwid">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildlikwid" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.likwid/#benchbuild.likwid">likwid</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid" title="Source for benchbuild.likwid">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Likwid helper functions.</p>
+<p>Extract information from likwid's CSV output.</p></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.fetch_cols">fetch_cols</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">fstream</code>, <code class="mkapi-object-signature">split_char</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Fetch columns from likwid's output stream.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.fetch_cols" title="Source for benchbuild.likwid.fetch_cols">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.get_measurements">get_measurements</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">region</code>, <code class="mkapi-object-signature">core_info</code>, <code class="mkapi-object-signature">data</code>, <code class="mkapi-object-signature">extra_offset</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Get the complete measurement info from likwid's region info.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.get_measurements" title="Source for benchbuild.likwid.get_measurements">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.perfcounters">perfcounters</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">infile</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Get a complete list of all measurements.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.perfcounters" title="Source for benchbuild.likwid.perfcounters">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.read_struct">read_struct</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">fstream</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Read a likwid struct from the text stream.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.read_struct" title="Source for benchbuild.likwid.read_struct">&lt;/&gt;</a></span></li>
+
+<li class="generator"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.read_structs">read_structs</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">fstream</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Read all structs from likwid's file stream.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.read_structs" title="Source for benchbuild.likwid.read_structs">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.read_table">read_table</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">fstream</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Read a likwid table info from the text stream.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.read_table" title="Source for benchbuild.likwid.read_table">&lt;/&gt;</a></span></li>
+
+<li class="generator"><code class="mkapi-item-name"><a href="../benchbuild.likwid#benchbuild.likwid.read_tables">read_tables</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">fstream</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Read all tables from likwid's file stream.<a class="mkapi-src-link" href="../source/benchbuild.likwid/#benchbuild.likwid.read_tables" title="Source for benchbuild.likwid.read_tables">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.plugins">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildplugins" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.plugins/#benchbuild.plugins">plugins</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.plugins/#benchbuild.plugins" title="Source for benchbuild.plugins">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Support a light plugin infrastructure.</p>
+<p>We dynamically load all modules listed in benchbuilds plugin configuration.
+*<em>PLUGINS</em>{EXPERIMENTS,PROJECTS}. See benchbuild's default settings for more
+details.</p>
+<p>Autoloading of plugins requires the configuration option BB_PLUGINS_AUTOLOAD
+to be set to True.</p>
+<p>Any subclass of
+    - benchbuild.experiment.Experiment
+    - benchbuild.project.Project
+will automatically register itself and is available on the CLI for all
+subcommands.</p></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.plugins#benchbuild.plugins.discover">discover</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Import all plugins listed in our configuration.<a class="mkapi-src-link" href="../source/benchbuild.plugins/#benchbuild.plugins.discover" title="Source for benchbuild.plugins.discover">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.settings">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildsettings" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.settings/#benchbuild.settings">settings</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.settings/#benchbuild.settings" title="Source for benchbuild.settings">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Settings module for benchbuild.</p>
+<p>All settings are stored in a simple dictionary. Each
+setting should be modifiable via environment variable.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.projects">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object package plain top">
+    <div class="mkapi-object-kind package top">package</div>
+    <h2 id="benchbuildprojects" class="mkapi-object-body package top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.project/#benchbuild.projects">projects</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.projects/#benchbuild.projects" title="Source for benchbuild.projects">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Projects module.</p>
+<p>By default, only projects that are listed in the configuration are
+loaded automatically. See configuration variables:
+ <em>_PLUGINS_AUTOLOAD
+ </em>_PLUGINS_PROJECTS</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildcontainer" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.container/#benchbuild.container">container</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container" title="Source for benchbuild.container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Container construction tool.</p>
+<p>This tool assists in the creation of customized uchroot containers.
+You can define strategies and apply them on a given container base-image
+to have a fixed way of creating a user-space environment.</p></div>
+    </div>
+  <div class="mkapi-section classes">
+      <div class="mkapi-section-name classes">
+          <span class="mkapi-section-name-body classes">Classes</span> 
+        </div>
+      <div class="mkapi-section-body classes"><ul class="mkapi-items">
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.MockObj">MockObj</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Context object to be used in strategies.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.MockObj" title="Source for benchbuild.container.MockObj">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.ContainerStrategy">ContainerStrategy</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Interfaces for the different containers chosen by the experiment.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerStrategy" title="Source for benchbuild.container.ContainerStrategy">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.BashStrategy">BashStrategy</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The user interface for setting up a bash inside the container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.BashStrategy" title="Source for benchbuild.container.BashStrategy">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.SetupPolyJITGentooStrategy">SetupPolyJITGentooStrategy</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Interface of using gentoo as a container for an experiment.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.SetupPolyJITGentooStrategy" title="Source for benchbuild.container.SetupPolyJITGentooStrategy">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.Container">Container</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Manage uchroot containers.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container" title="Source for benchbuild.container.Container">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.ContainerRun">ContainerRun</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Execute commannds inside a prebuilt container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerRun" title="Source for benchbuild.container.ContainerRun">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.ContainerCreate">ContainerCreate</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Create a new container with a predefined strategy.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate" title="Source for benchbuild.container.ContainerCreate">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.ContainerBootstrap">ContainerBootstrap</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Check for the needed files.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap" title="Source for benchbuild.container.ContainerBootstrap">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.ContainerList">ContainerList</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints a list of the known containers.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerList" title="Source for benchbuild.container.ContainerList">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.clean_directories">clean_directories</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">in_dir</code>, <code class="mkapi-object-signature">out_dir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Remove the in and out of the container if confirmed by the user.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.clean_directories" title="Source for benchbuild.container.clean_directories">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.find_hash">find_hash</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">container_db</code>, <code class="mkapi-object-signature">key</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Find the first container in the database with the given key.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.find_hash" title="Source for benchbuild.container.find_hash">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Main entry point for the container tool.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.main" title="Source for benchbuild.container.main">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.pack_container">pack_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">in_container</code>, <code class="mkapi-object-signature">out_file</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Pack a container image into a .tar.bz2 archive.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.pack_container" title="Source for benchbuild.container.pack_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.run_in_container">run_in_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">command</code>, <code class="mkapi-object-signature">container_dir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Run a given command inside a container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.run_in_container" title="Source for benchbuild.container.run_in_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.set_input_container">set_input_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code>, <code class="mkapi-object-signature">cfg</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Save the input for the container in the configurations.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.set_input_container" title="Source for benchbuild.container.set_input_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.setup_bash_in_container">setup_bash_in_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">_container</code>, <code class="mkapi-object-signature">outfile</code>, <code class="mkapi-object-signature">shell</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Setup a bash environment inside a container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_bash_in_container" title="Source for benchbuild.container.setup_bash_in_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.setup_container">setup_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prepare the container and returns the path where it can be found.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_container" title="Source for benchbuild.container.setup_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.container#benchbuild.container.setup_directories">setup_directories</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Create the in and out directories of the container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_directories" title="Source for benchbuild.container.setup_directories">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.project">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildproject" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.project/#benchbuild.project">project</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project" title="Source for benchbuild.project">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Project</p>
+<p>A project in benchbuild is an abstract representation of a software
+system that can live in various stages throughout an experiment.
+It defines two extension points for an experiment to attach on, the
+compile-time phase and the (optional) run-time phase.</p>
+<p>An experiment can intercept the compilation phase of a project and perform
+any experiment that requires the source artifacts as input.</p>
+<p>Furthermore, it is possible to intercept a project's run-time pahse with
+a measurement.</p>
+<p>The project definition ensures that all experiments run through the same
+series of commands in both phases and that all experiments run inside
+a separate build directory in isolation of one another.</p></div>
+    </div>
+  <div class="mkapi-section classes">
+      <div class="mkapi-section-name classes">
+          <span class="mkapi-section-name-body classes">Classes</span> 
+        </div>
+      <div class="mkapi-section-body classes"><ul class="mkapi-items">
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.project#benchbuild.project.ProjectRegistry">ProjectRegistry</a></code>
+<span class="mkapi-item-type">(any)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registry for benchbuild projects.<a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project.ProjectRegistry" title="Source for benchbuild.project.ProjectRegistry">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.project#benchbuild.project.ProjectDecorator">ProjectDecorator</a></code>
+<span class="mkapi-item-type">(any)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Decorate the interface of a project with the in_builddir decorator.<a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project.ProjectDecorator" title="Source for benchbuild.project.ProjectDecorator">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.project#benchbuild.project.Project">Project</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Abstract class for benchbuild projects.<a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project.Project" title="Source for benchbuild.project.Project">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.project#benchbuild.project.__add_filters__">__add_filters__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">project</code>, <code class="mkapi-object-signature">version_str</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(type of <a href="../benchbuild.project/#benchbuild.project.Project">Project</a>)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Add a set of version filters to this project's source.<a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project.__add_filters__" title="Source for benchbuild.project.__add_filters__">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.project#benchbuild.project.discovered">discovered</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(dict(str: type of <a href="../benchbuild.project/#benchbuild.project.Project">Project</a>))</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Return all discovered projects.<a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project.discovered" title="Source for benchbuild.project.discovered">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.project#benchbuild.project.populate">populate</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">projects_to_filter</code>, <code class="mkapi-object-signature">group</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Populate the list of projects that belong to this experiment.<a class="mkapi-src-link" href="../source/benchbuild.project/#benchbuild.project.populate" title="Source for benchbuild.project.populate">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.engine">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildengine" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.engine/#benchbuild.engine">engine</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.engine/#benchbuild.engine" title="Source for benchbuild.engine">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Orchestrate experiment execution.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.experiments">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object package plain top">
+    <div class="mkapi-object-kind package top">package</div>
+    <h2 id="benchbuildexperiments" class="mkapi-object-body package top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.experiment/#benchbuild.experiments">experiments</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.experiments/#benchbuild.experiments" title="Source for benchbuild.experiments">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Experiments module.</p>
+<p>Experiments are discovered automatically by benchbuild.
+You can configure the modules we search for experiments with the
+settings:
+    BB_PLUGINS_AUTOLOAD=True
+    BB_PLUGINS_EXPERIMENTS=[...]</p>
+<p>Any subclass of benchbuild.experiments.Experiment will be
+automatically registered and made available on the command line.</p></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.experiments#benchbuild.experiments.discover">discover</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Import all experiments listed in PLUGINS_EXPERIMENTS.<a class="mkapi-src-link" href="../source/benchbuild.experiments/#benchbuild.experiments.discover" title="Source for benchbuild.experiments.discover">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.cli">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object package plain top">
+    <div class="mkapi-object-kind package top">package</div>
+    <h2 id="benchbuildcli" class="mkapi-object-body package top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.cli/#benchbuild.cli">cli</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.cli/#benchbuild.cli" title="Source for benchbuild.cli">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>The CLI package.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object package plain top">
+    <div class="mkapi-object-kind package top">package</div>
+    <h2 id="benchbuildutils" class="mkapi-object-body package top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.utils/#benchbuild.utils">utils</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils/#benchbuild.utils" title="Source for benchbuild.utils">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Module handler that makes sure the modules for our commands are build similar
+to plumbum. The built modules are only active during a run of an experiment and
+get deleted afterwards.</p></div>
+    </div>
+  <div class="mkapi-section classes">
+      <div class="mkapi-section-name classes">
+          <span class="mkapi-section-name-body classes">Classes</span> 
+        </div>
+      <div class="mkapi-section-body classes"><ul class="mkapi-items">
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.utils#benchbuild.utils.ErrorCommand">ErrorCommand</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A command that raises an exception when it gets called.
+This allows us to call the study with experiments who use incorrect imports,
+without the entire study to crash.
+The experiment will fail anyway, but without the entire programm crashing.<a class="mkapi-src-link" href="../source/benchbuild.utils/#benchbuild.utils.ErrorCommand" title="Source for benchbuild.utils.ErrorCommand">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.source">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object package plain top">
+    <div class="mkapi-object-kind package top">package</div>
+    <h2 id="benchbuildsource" class="mkapi-object-body package top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.source/#benchbuild.source">source</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.source/#benchbuild.source" title="Source for benchbuild.source">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Declarative API for downloading sources required by benchbuild.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.statistics">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildstatistics" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.statistics/#benchbuild.statistics">statistics</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.statistics/#benchbuild.statistics" title="Source for benchbuild.statistics">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Handle all statsitic related classes and methods.</p></div>
+    </div>
+  <div class="mkapi-section classes">
+      <div class="mkapi-section-name classes">
+          <span class="mkapi-section-name-body classes">Classes</span> 
+        </div>
+      <div class="mkapi-section-body classes"><ul class="mkapi-items">
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.statistics#benchbuild.statistics.Statistics">Statistics</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Extend a run to be repeated until it reaches a statistically significance
+specified by the user.<a class="mkapi-src-link" href="../source/benchbuild.statistics/#benchbuild.statistics.Statistics" title="Source for benchbuild.statistics.Statistics">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.experiment">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h2 id="benchbuildexperiment" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name"><a href="../benchbuild.experiment/#benchbuild.experiment">experiment</a></span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.experiment/#benchbuild.experiment" title="Source for benchbuild.experiment">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Experiments</p>
+<p>An experiment in benchbuild is a simple list of actions that need to be
+executed on every project that is part of the experiment.
+Every <code>callable</code> can serve as an action.</p>
+<p>However, benchbuild provides many predefined actions that can
+be reused by implementations in the <code>benchbuild.utils.actions</code> module.
+Furthermore, if you do not need to control the default order of
+actions for a run-time or a compile-time experiment you can reuse the
+<code>Experiment.default_runtime_actions</code> or
+<code>Experiment.default_compiletime_actions</code>.</p>
+<p>Besides the list of actions, it is also the responsibility of an experiment
+to configure each single project that should take part in an experiment.
+This includes setting appropriate <code>CFLAGS</code>, <code>LDFLAGS</code> and any additional
+metadata that has to be added to binary runs for later evaluation.</p></div>
+    </div>
+  <div class="mkapi-section example">
+      <div class="mkapi-section-name example">
+          <span class="mkapi-section-name-body example">Example</span> 
+        </div>
+      <div class="mkapi-section-body example"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">HelloExperiment</span><span class="p">(</span><span class="n">Experiment</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+    </div>
+  <div class="mkapi-section classes">
+      <div class="mkapi-section-name classes">
+          <span class="mkapi-section-name-body classes">Classes</span> 
+        </div>
+      <div class="mkapi-section-body classes"><ul class="mkapi-items">
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.experiment#benchbuild.experiment.ExperimentRegistry">ExperimentRegistry</a></code>
+<span class="mkapi-item-type">(any)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registry for benchbuild experiments.<a class="mkapi-src-link" href="../source/benchbuild.experiment/#benchbuild.experiment.ExperimentRegistry" title="Source for benchbuild.experiment.ExperimentRegistry">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.experiment#benchbuild.experiment.Experiment">Experiment</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A series of commands executed on a project that form an experiment.<a class="mkapi-src-link" href="../source/benchbuild.experiment/#benchbuild.experiment.Experiment" title="Source for benchbuild.experiment.Experiment">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="../benchbuild.experiment#benchbuild.experiment.Configuration">Configuration</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Build a set of experiment actions out of a list of configurations.<a class="mkapi-src-link" href="../source/benchbuild.experiment/#benchbuild.experiment.Configuration" title="Source for benchbuild.experiment.Configuration">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="../benchbuild.experiment#benchbuild.experiment.discovered">discovered</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(dict(str: type of <a href="../benchbuild.experiment/#benchbuild.experiment.Experiment">Experiment</a>))</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Return all discovered experiments.<a class="mkapi-src-link" href="../source/benchbuild.experiment/#benchbuild.experiment.discovered" title="Source for benchbuild.experiment.discovered">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../benchbuild.likwid/" class="btn btn-neutral float-right" title="benchbuild.likwid">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../advanced/" class="btn btn-neutral" title="TODO"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/PolyJIT/benchbuild" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../advanced/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../benchbuild.likwid/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mkapi.js"></script>
+      <script src="../../js/pheasant.js"></script>
+      <script src="../../search/main.js"></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

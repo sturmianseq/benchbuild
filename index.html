@@ -1,2570 +1,400 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Empirical-Research Toolkit">
+  <meta name="author" content="simbuerg">
+  <link rel="canonical" href="https://polyjit.github.io/benchbuild/">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>BenchBuild</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="css/mkapi-common.css" rel="stylesheet" />
+  <link href="css/mkapi-readthedocs.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css" rel="stylesheet" />
+  <link href="css/pheasant.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "BenchBuild Documentation";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/benchbuild/";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/modernizr-2.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
 
+<body class="wy-body-for-nav" role="document">
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.0">
-    
-    
-      
-        <title>benchbuild</title>
-      
-    
-    
-      <link rel="stylesheet" href="assets/stylesheets/main.6e35a1a6.min.css">
-      
-        <link rel="stylesheet" href="assets/stylesheets/palette.a46bcfb3.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#4caf50">
-      
-    
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
-    
-    
-    
-    
-      
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#benchbuild-empirical-research-toolkit" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="." title="benchbuild" class="md-header-nav__button md-logo" aria-label="benchbuild">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <div class="wy-grid-for-nav">
 
-    </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
-            benchbuild
-          </span>
-          <span class="md-header-nav__topic md-ellipsis">
-            
-              Home
-            
-          </span>
-        </div>
-      
-    </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> BenchBuild</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
-    
-    
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/PolyJIT/benchbuild/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    benchbuild
-  </div>
-</a>
       </div>
-    
-  </nav>
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-        
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="." title="benchbuild" class="md-nav__button md-logo" aria-label="benchbuild">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-    </a>
-    benchbuild
-  </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://github.com/PolyJIT/benchbuild/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    benchbuild
-  </div>
-</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">BenchBuild Documentation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#design-philosophy">Design Philosophy</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-case-study-doesnt-know-its-experiment">A case-study doesn&#39;t know its experiment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#an-experiment-doesnt-know-its-case-studies">An experiment doesn&#39;t know its case-studies</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-python-versions">Supported Python Versions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="basics/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="basics/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Concepts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="concepts/source/">Source</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="concepts/environments/">Environment</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="concepts/projects/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="concepts/experiments/">Experiment</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Advanced Usage</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="advanced/">TODO</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild/">benchbuild</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.likwid/">benchbuild.likwid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.extensions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.extensions/">benchbuild.extensions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.extensions.base/">benchbuild.extensions.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.plugins/">benchbuild.plugins</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.db.versions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.db.versions/">benchbuild.db.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.db.versions.002_Remove_GlobalConfig_table/">benchbuild.db.versions.002_Remove_GlobalConfig_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.db.versions.001_Remove_RegressionTest_table/">benchbuild.db.versions.001_Remove_RegressionTest_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.db.versions.003_Unmanage_Events/">benchbuild.db.versions.003_Unmanage_Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.settings/">benchbuild.settings</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects/">benchbuild.projects</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.gentoo</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo/">benchbuild.projects.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.lammps/">benchbuild.projects.gentoo.lammps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.xz/">benchbuild.projects.gentoo.xz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.info/">benchbuild.projects.gentoo.info</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.crafty/">benchbuild.projects.gentoo.crafty</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.eix/">benchbuild.projects.gentoo.eix</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.portage_gen/">benchbuild.projects.gentoo.portage_gen</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.gentoo/">benchbuild.projects.gentoo.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.gzip/">benchbuild.projects.gentoo.gzip</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.postgresql/">benchbuild.projects.gentoo.postgresql</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.x264/">benchbuild.projects.gentoo.x264</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.sevenz/">benchbuild.projects.gentoo.sevenz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.gentoo.bzip2/">benchbuild.projects.gentoo.bzip2</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.lnt</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.lnt/">benchbuild.projects.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.projects.lnt.lnt/">benchbuild.projects.lnt.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.container/">benchbuild.container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.project/">benchbuild.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.engine/">benchbuild.engine</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.experiments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.experiments/">benchbuild.experiments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.experiments.raw/">benchbuild.experiments.raw</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.experiments.empty/">benchbuild.experiments.empty</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.environments.domain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.environments.domain/">benchbuild.environments.domain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.environments.domain.declarative/">benchbuild.environments.domain.declarative</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.cli</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli/">benchbuild.cli</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.experiment/">benchbuild.cli.experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.slurm/">benchbuild.cli.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.main/">benchbuild.cli.main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.log/">benchbuild.cli.log</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.run/">benchbuild.cli.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.project/">benchbuild.cli.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.cli.config/">benchbuild.cli.config</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils/">benchbuild.utils</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.revision_ranges/">benchbuild.utils.revision_ranges</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.slurm/">benchbuild.utils.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.tasks/">benchbuild.utils.tasks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.bootstrap/">benchbuild.utils.bootstrap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.wrapping/">benchbuild.utils.wrapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.container/">benchbuild.utils.container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.download/">benchbuild.utils.download</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.dict/">benchbuild.utils.dict</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.db/">benchbuild.utils.db</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.settings/">benchbuild.utils.settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.schema/">benchbuild.utils.schema</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.versions/">benchbuild.utils.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.schedule_tree/">benchbuild.utils.schedule_tree</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.run/">benchbuild.utils.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.path/">benchbuild.utils.path</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.compiler/">benchbuild.utils.compiler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.actions/">benchbuild.utils.actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.utils.user_interface/">benchbuild.utils.user_interface</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.source</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.source/">benchbuild.source</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.source.http/">benchbuild.source.http</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.source.git/">benchbuild.source.git</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.source.base/">benchbuild.source.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.statistics/">benchbuild.statistics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="api/benchbuild.experiment/">benchbuild.experiment</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="CHANGELOG/">Release Notes</a>
+                    </li>
+                </ul>
+      </div>
     </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
       
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
-      Home
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#important-configuration-options" class="md-nav__link">
-    Important configuration options
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-    <nav class="md-nav" aria-label="Database">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    SQLite
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-features" class="md-nav__link">
-    Advanced Features
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unionfs" class="md-nav__link">
-    UnionFS
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Reference
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Reference" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Reference
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
-    
-    <label class="md-nav__link" for="nav-2-1">
-      Benchbuild
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Benchbuild" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Benchbuild
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/container/" title="Container" class="md-nav__link">
-      Container
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/driver/" title="Driver" class="md-nav__link">
-      Driver
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/experiment/" title="Experiment" class="md-nav__link">
-      Experiment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/likwid/" title="Likwid" class="md-nav__link">
-      Likwid
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/project/" title="Project" class="md-nav__link">
-      Project
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/settings/" title="Settings" class="md-nav__link">
-      Settings
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/signals/" title="Signals" class="md-nav__link">
-      Signals
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/statistics/" title="Statistics" class="md-nav__link">
-      Statistics
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-10" type="checkbox" id="nav-2-1-10">
-    
-    <label class="md-nav__link" for="nav-2-1-10">
-      CLI
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="CLI" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-10">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        CLI
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/bootstrap/" title="Bootstrap" class="md-nav__link">
-      Bootstrap
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/config/" title="Config" class="md-nav__link">
-      Config
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/experiment/" title="Experiment" class="md-nav__link">
-      Experiment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/log/" title="Log" class="md-nav__link">
-      Log
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/main/" title="Main" class="md-nav__link">
-      Main
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/project/" title="Project" class="md-nav__link">
-      Project
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/report/" title="Report" class="md-nav__link">
-      Report
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/run/" title="Run" class="md-nav__link">
-      Run
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/cli/slurm/" title="Slurm" class="md-nav__link">
-      Slurm
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-11" type="checkbox" id="nav-2-1-11">
-    
-    <label class="md-nav__link" for="nav-2-1-11">
-      Db
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Db" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-11">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Db
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/db/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/db/manage/" title="Manage" class="md-nav__link">
-      Manage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-11-3" type="checkbox" id="nav-2-1-11-3">
-    
-    <label class="md-nav__link" for="nav-2-1-11-3">
-      Versions
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Versions" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-11-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Versions
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/db/versions/001_Remove_RegressionTest_table/" title="001 Remove Regressiontest Table" class="md-nav__link">
-      001 Remove Regressiontest Table
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/db/versions/002_Remove_GlobalConfig_table/" title="002 Remove Globalconfig Table" class="md-nav__link">
-      002 Remove Globalconfig Table
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/db/versions/003_Unmanage_Events/" title="003 Unmanage Events" class="md-nav__link">
-      003 Unmanage Events
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/db/versions/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-12" type="checkbox" id="nav-2-1-12">
-    
-    <label class="md-nav__link" for="nav-2-1-12">
-      Experiments
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Experiments" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-12">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Experiments
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/experiments/empty/" title="Empty" class="md-nav__link">
-      Empty
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/experiments/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/experiments/raw/" title="Raw" class="md-nav__link">
-      Raw
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-13" type="checkbox" id="nav-2-1-13">
-    
-    <label class="md-nav__link" for="nav-2-1-13">
-      Extensions
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Extensions" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-13">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Extensions
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/extensions/base/" title="Base" class="md-nav__link">
-      Base
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/extensions/compiler/" title="Compiler" class="md-nav__link">
-      Compiler
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/extensions/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/extensions/log/" title="Log" class="md-nav__link">
-      Log
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/extensions/run/" title="Run" class="md-nav__link">
-      Run
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/extensions/time/" title="Time" class="md-nav__link">
-      Time
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14" type="checkbox" id="nav-2-1-14">
-    
-    <label class="md-nav__link" for="nav-2-1-14">
-      Projects
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Projects" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-14">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Projects
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-2" type="checkbox" id="nav-2-1-14-2">
-    
-    <label class="md-nav__link" for="nav-2-1-14-2">
-      Apollo
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Apollo" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-14-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Apollo
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/apollo/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/apollo/rodinia/" title="Rodinia" class="md-nav__link">
-      Rodinia
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/apollo/scimark/" title="Scimark" class="md-nav__link">
-      Scimark
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-3" type="checkbox" id="nav-2-1-14-3">
-    
-    <label class="md-nav__link" for="nav-2-1-14-3">
-      Benchbuild
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Benchbuild" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-14-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Benchbuild
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/bots/" title="Bots" class="md-nav__link">
-      Bots
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/bzip2/" title="Bzip2" class="md-nav__link">
-      Bzip2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/ccrypt/" title="Ccrypt" class="md-nav__link">
-      Ccrypt
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/crafty/" title="Crafty" class="md-nav__link">
-      Crafty
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/crocopat/" title="Crocopat" class="md-nav__link">
-      Crocopat
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/ffmpeg/" title="Ffmpeg" class="md-nav__link">
-      Ffmpeg
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/gzip/" title="Gzip" class="md-nav__link">
-      Gzip
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/js/" title="Js" class="md-nav__link">
-      Js
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/lammps/" title="Lammps" class="md-nav__link">
-      Lammps
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/lapack/" title="Lapack" class="md-nav__link">
-      Lapack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/leveldb/" title="Leveldb" class="md-nav__link">
-      Leveldb
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/linpack/" title="Linpack" class="md-nav__link">
-      Linpack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/lulesh/" title="Lulesh" class="md-nav__link">
-      Lulesh
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/mcrypt/" title="Mcrypt" class="md-nav__link">
-      Mcrypt
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/minisat/" title="Minisat" class="md-nav__link">
-      Minisat
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/openssl/" title="Openssl" class="md-nav__link">
-      Openssl
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/povray/" title="Povray" class="md-nav__link">
-      Povray
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/python/" title="Python" class="md-nav__link">
-      Python
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/rasdaman/" title="Rasdaman" class="md-nav__link">
-      Rasdaman
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/ruby/" title="Ruby" class="md-nav__link">
-      Ruby
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/sdcc/" title="Sdcc" class="md-nav__link">
-      Sdcc
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/sevenz/" title="Sevenz" class="md-nav__link">
-      Sevenz
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/sqlite3/" title="Sqlite3" class="md-nav__link">
-      Sqlite3
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/tcc/" title="Tcc" class="md-nav__link">
-      Tcc
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/x264/" title="X264" class="md-nav__link">
-      X264
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/benchbuild/xz/" title="Xz" class="md-nav__link">
-      Xz
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-4" type="checkbox" id="nav-2-1-14-4">
-    
-    <label class="md-nav__link" for="nav-2-1-14-4">
-      Gentoo
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Gentoo" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-14-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Gentoo
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/autoportage/" title="Autoportage" class="md-nav__link">
-      Autoportage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/bzip2/" title="Bzip2" class="md-nav__link">
-      Bzip2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/crafty/" title="Crafty" class="md-nav__link">
-      Crafty
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/eix/" title="Eix" class="md-nav__link">
-      Eix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/gentoo/" title="Gentoo" class="md-nav__link">
-      Gentoo
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/gzip/" title="Gzip" class="md-nav__link">
-      Gzip
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/info/" title="Info" class="md-nav__link">
-      Info
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/lammps/" title="Lammps" class="md-nav__link">
-      Lammps
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/portage_gen/" title="Portage Gen" class="md-nav__link">
-      Portage Gen
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/postgresql/" title="Postgresql" class="md-nav__link">
-      Postgresql
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/sevenz/" title="Sevenz" class="md-nav__link">
-      Sevenz
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/x264/" title="X264" class="md-nav__link">
-      X264
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/gentoo/xz/" title="Xz" class="md-nav__link">
-      Xz
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-5" type="checkbox" id="nav-2-1-14-5">
-    
-    <label class="md-nav__link" for="nav-2-1-14-5">
-      Lnt
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Lnt" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-14-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Lnt
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/lnt/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/lnt/lnt/" title="Lnt" class="md-nav__link">
-      Lnt
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-6" type="checkbox" id="nav-2-1-14-6">
-    
-    <label class="md-nav__link" for="nav-2-1-14-6">
-      Polybench
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Polybench" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-14-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Polybench
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/polybench/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/polybench/polybench-mod/" title="Polybench Mod" class="md-nav__link">
-      Polybench Mod
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/polybench/polybench/" title="Polybench" class="md-nav__link">
-      Polybench
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-14-7" type="checkbox" id="nav-2-1-14-7">
-    
-    <label class="md-nav__link" for="nav-2-1-14-7">
-      Test
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Test" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-14-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Test
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/test/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/projects/test/test/" title="Test" class="md-nav__link">
-      Test
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-15" type="checkbox" id="nav-2-1-15">
-    
-    <label class="md-nav__link" for="nav-2-1-15">
-      Reports
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Reports" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-15">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Reports
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/reports/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/reports/raw/" title="Raw" class="md-nav__link">
-      Raw
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/reports/status/" title="Status" class="md-nav__link">
-      Status
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-16" type="checkbox" id="nav-2-1-16">
-    
-    <label class="md-nav__link" for="nav-2-1-16">
-      Utils
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Utils" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-1-16">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Utils
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/actions/" title="Actions" class="md-nav__link">
-      Actions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/bootstrap/" title="Bootstrap" class="md-nav__link">
-      Bootstrap
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/compiler/" title="Compiler" class="md-nav__link">
-      Compiler
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/container/" title="Container" class="md-nav__link">
-      Container
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/db/" title="Db" class="md-nav__link">
-      Db
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/dict/" title="Dict" class="md-nav__link">
-      Dict
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/download/" title="Download" class="md-nav__link">
-      Download
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/log/" title="Log" class="md-nav__link">
-      Log
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/path/" title="Path" class="md-nav__link">
-      Path
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/progress/" title="Progress" class="md-nav__link">
-      Progress
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/requirements/" title="Requirements" class="md-nav__link">
-      Requirements
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/run/" title="Run" class="md-nav__link">
-      Run
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/schedule_tree/" title="Schedule Tree" class="md-nav__link">
-      Schedule Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/schema/" title="Schema" class="md-nav__link">
-      Schema
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/settings/" title="Settings" class="md-nav__link">
-      Settings
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/slurm/" title="Slurm" class="md-nav__link">
-      Slurm
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/tasks/" title="Tasks" class="md-nav__link">
-      Tasks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/uchroot/" title="Uchroot" class="md-nav__link">
-      Uchroot
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/unionfs/" title="Unionfs" class="md-nav__link">
-      Unionfs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/user_interface/" title="User Interface" class="md-nav__link">
-      User Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/versions/" title="Versions" class="md-nav__link">
-      Versions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="reference/benchbuild/utils/wrapping/" title="Wrapping" class="md-nav__link">
-      Wrapping
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#important-configuration-options" class="md-nav__link">
-    Important configuration options
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
-    Database
-  </a>
-  
-    <nav class="md-nav" aria-label="Database">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
-    PostgreSQL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    SQLite
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-features" class="md-nav__link">
-    Advanced Features
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unionfs" class="md-nav__link">
-    UnionFS
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/PolyJIT/benchbuild/edit/master/README.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  
-                
-                
-                <h1 id="benchbuild-empirical-research-toolkit">BenchBuild: Empirical-Research Toolkit</h1>
-<p><img alt="Python CI" src="https://github.com/PolyJIT/benchbuild/workflows/Python%20CI/badge.svg" />
-<img alt="Build Documentation" src="https://github.com/PolyJIT/benchbuild/workflows/Build%20Documentation/badge.svg" />
-<a href="https://www.codacy.com/app/polyjit/benchbuild_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PolyJIT/benchbuild&amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/217af919753b4d16b3760282c1274751" /></a>
-<a href="https://codecov.io/gh/PolyJIT/benchbuild"><img alt="codecov" src="https://codecov.io/gh/PolyJIT/benchbuild/branch/master/graph/badge.svg" /></a>
-<a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a></p>
-<p>BenchBuild provides a lightweight toolkit to conduct empirical compile-time and run-time experiments.
-Striving to automate all tedious and error-prone tasks, it downloads, configure and builds all supported projects fully automatic and provides tools to wrap the compiler and any resulting binary with a customized measurement.</p>
-<p>All results can be stored as the user desires.
-BenchBuild tracks the execution status of all its managed projects inside an own database.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Wrap compilation commands with arbitrary measurement functions written in python.</li>
-<li>Wrap binary commands with arbitrary measurement functions written in python.</li>
-<li>Parallel benchmarking using the SLURM cluster manager.</li>
-</ul>
-<h2 id="installation">Installation</h2>
-<p>BenchBuild is available via PyPI. You can install the latest release with pip.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Global install</span>
-$ pip install benchbuild
-<span class="c1"># Lokal install</span>
-$ pip install --user benchbuild
-<span class="c1"># Recommended: Install into a virutalenv.</span>
-$ virtualenv benchbuild
-...
-$ <span class="nb">source</span> benchbuild/bin/activate
-...
-$ pip install benchbuild
-</code></pre></div>
-
-
-<p>After installation you can start using benchbuild with the frontend <code>benchbuild</code>.
-Without arguments, you will be greeted with the following help output:</p>
-<div class="codehilite"><pre><span></span><code>benchbuild <span class="m">3</span>.3.1.dev1+gf43b2d0
-
-Frontend <span class="k">for</span> running/building the benchbuild study framework.
-
-Usage:
-    benchbuild <span class="o">[</span>SWITCHES<span class="o">]</span> <span class="o">[</span>SUBCOMMAND <span class="o">[</span>SWITCHES<span class="o">]]</span> args...
-
-Meta-switches:
-    -h, --help      Prints this <span class="nb">help</span> message and quits
-    --help-all      Print <span class="nb">help</span> messages of all subcommands and quit
-    --version       Prints the program<span class="s1">&#39;s version and quits</span>
-
-<span class="s1">Switches:</span>
-<span class="s1">    -d              Enable debugging output</span>
-<span class="s1">    -v              Enable verbose output; may be given multiple times</span>
-
-<span class="s1">Subcommands:</span>
-<span class="s1">    bootstrap       Bootstrap benchbuild external dependencies, if possible.; see &#39;</span>benchbuild bootstrap --help<span class="s1">&#39; for more info</span>
-<span class="s1">    config          Manage BenchBuild&#39;</span>s configuration.<span class="p">;</span> see <span class="s1">&#39;benchbuild config --help&#39;</span> <span class="k">for</span> more info
-    experiment      Manage BenchBuild<span class="s1">&#39;s known experiments.; see &#39;</span>benchbuild experiment --help<span class="s1">&#39; for more info</span>
-<span class="s1">    log             Frontend command to the benchbuild database. ; see &#39;</span>benchbuild log --help<span class="s1">&#39; for more info</span>
-<span class="s1">    project         Manage BenchBuild&#39;</span>s known projects.<span class="p">;</span> see <span class="s1">&#39;benchbuild project --help&#39;</span> <span class="k">for</span> more info
-    report          Generate Reports from the benchbuild db.<span class="p">;</span> see <span class="s1">&#39;benchbuild report --help&#39;</span> <span class="k">for</span> more info
-    run             Frontend <span class="k">for</span> running experiments in the benchbuild study framework.<span class="p">;</span> see <span class="s1">&#39;benchbuild run --help&#39;</span> <span class="k">for</span> more info
-    slurm           Generate a SLURM script. <span class="p">;</span> see <span class="s1">&#39;benchbuild slurm --help&#39;</span> <span class="k">for</span> more info
-</code></pre></div>
-
-
-<p>You can now start using benchbuild. However, you might want to configure benchbuild to your needs. Therefore, it is recommended to generate a default configuration first.</p>
-<div class="codehilite"><pre><span></span><code>$ benchbuild config write
-</code></pre></div>
-
-
-<p>This will place a .benchbuild.yml in the current directory, containing all default values for
-your system. You can modify the configuration as you wish, most of the configuration options
-are explained with a description in the config file.</p>
-<h3 id="important-configuration-options">Important configuration options</h3>
-<p>The following configuration options are considered to be very important for benchbuild's behavior.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">build_dir</span> <span class="p">(</span><span class="n">BB_BUILD_DIR</span><span class="p">):</span>
-  <span class="k">All</span> <span class="k">generated</span> <span class="n">artifacts</span> <span class="n">will</span> <span class="n">be</span> <span class="n">placed</span> <span class="k">in</span> <span class="n">this</span> <span class="n">directory</span><span class="p">.</span> <span class="k">By</span> <span class="k">default</span><span class="p">,</span> <span class="n">it</span> <span class="n">will</span> <span class="n">be</span> <span class="n">cleaned</span>
-  <span class="k">at</span> <span class="n">the</span> <span class="k">end</span> <span class="k">of</span> <span class="n">an</span> <span class="n">experiment</span><span class="p">.</span>
-
-<span class="n">db</span> <span class="p">(</span><span class="n">BB_DB_</span><span class="o">*</span><span class="p">):</span>
-  <span class="n">connect_str</span> <span class="p">(</span><span class="n">BB_DB_CONNECT_STR</span><span class="p">):</span>
-    <span class="n">You</span> <span class="n">need</span> <span class="k">to</span> <span class="n">place</span> <span class="n">a</span> <span class="k">valid</span> <span class="n">sqlalchemy</span> <span class="k">connect</span> <span class="n">string</span> <span class="n">here</span><span class="p">.</span> <span class="n">It</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">establish</span> <span class="n">a</span>
-    <span class="k">database</span> <span class="k">connection</span><span class="p">.</span>
-    <span class="k">By</span> <span class="k">default</span> <span class="n">an</span> <span class="k">in</span><span class="o">-</span><span class="n">memory</span> <span class="n">SQLite</span> <span class="k">database</span> <span class="k">is</span> <span class="n">used</span> <span class="p">(</span><span class="n">sqlite</span><span class="p">:</span><span class="o">///</span><span class="p">).</span>
-
-<span class="n">env</span> <span class="p">(</span><span class="n">BB_ENV_</span><span class="o">*</span><span class="p">):</span>
-  <span class="n">ld_library_path</span> <span class="p">(</span><span class="n">BB_LD_LIBRARY_PATH</span><span class="p">):</span>
-    <span class="k">Modify</span> <span class="n">benchbuild</span><span class="s1">&#39;s LD_LIBRARY_PATH variable. You can use this to provide access to</span>
-<span class="s1">    libraries outside of the system&#39;</span><span class="n">s</span> <span class="k">default</span> <span class="n">library</span> <span class="k">search</span> <span class="n">path</span><span class="p">.</span>
-  <span class="n">path</span> <span class="p">(</span><span class="n">BB_PATH</span><span class="p">):</span>
-    <span class="k">Modify</span> <span class="n">benchbuild</span><span class="s1">&#39;s PATH variable. You can use this to provide access to</span>
-<span class="s1">    binaries outside of the system&#39;</span><span class="n">s</span> <span class="k">default</span> <span class="nb">binary</span> <span class="k">search</span> <span class="n">path</span><span class="p">.</span>
-  <span class="n">home</span> <span class="p">(</span><span class="n">BB_HOME</span><span class="p">):</span>
-    <span class="k">Modify</span> <span class="n">benchbuild</span><span class="s1">&#39;s HOME variable. You can use this to set a custom home</span>
-<span class="s1">    directory, if the default home is not available to benchbuild.</span>
-
-<span class="s1">test_dir (BB_TEST_DIR):</span>
-<span class="s1">  Some distributed projects require additional test-inputs that are too big for</span>
-<span class="s1">  distribution with benchbuild. Therefore, there exists an additional repository (private)</span>
-<span class="s1">  that contains the input files for these projects. Please contact the authors for access</span>
-<span class="s1">  to this repository, if you need run-time tests with these projects.</span>
-
-<span class="s1">tmp_dir (BB_TMP_DIR):</span>
-<span class="s1">  BenchBuild will download the source code for all projects into this directory. We avoid</span>
-<span class="s1">  repeated downloads by caching them here. This directory won&#39;</span><span class="n">t</span> <span class="n">be</span> <span class="n">cleaned</span> <span class="k">and</span> <span class="k">all</span> <span class="n">downloads</span>
-  <span class="k">are</span> <span class="n">hashed</span><span class="p">.</span> <span class="k">If</span> <span class="n">you</span> <span class="n">want</span> <span class="k">to</span> <span class="n">re</span><span class="o">-</span><span class="n">download</span> <span class="n">the</span> <span class="k">source</span><span class="p">,</span> <span class="n">just</span> <span class="k">delete</span> <span class="n">the</span> <span class="n">hash</span> <span class="n">file</span> <span class="p">(</span><span class="k">or</span> <span class="n">the</span> <span class="k">source</span> <span class="n">file</span><span class="p">).</span>
-
-<span class="n">unionfs</span> <span class="p">(</span><span class="n">BB_UNIONFS_</span><span class="o">*</span><span class="p">):</span>
-  <span class="n">unionfs_enable</span><span class="p">:</span> <span class="p">(</span><span class="n">BB_UNIONFS_ENABLE</span><span class="p">):</span>
-    <span class="n">Enable</span><span class="o">/</span><span class="n">Disable</span> <span class="n">unionfs</span> <span class="n">features</span><span class="p">.</span> <span class="k">By</span> <span class="k">default</span> <span class="n">unionfs</span> <span class="k">is</span> <span class="n">switched</span> <span class="k">off</span><span class="p">.</span> <span class="k">If</span> <span class="n">you</span> <span class="n">enable</span> <span class="n">unionfs</span><span class="p">,</span>
-    <span class="k">all</span> <span class="n">projects</span> <span class="n">will</span> <span class="n">be</span> <span class="n">wrapped</span> <span class="k">in</span> <span class="n">two</span> <span class="n">layers</span><span class="p">:</span> <span class="n">One</span> <span class="k">read</span><span class="o">-</span><span class="k">only</span> <span class="n">layer</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">prepared</span>
-    <span class="k">source</span> <span class="n">files</span> <span class="k">and</span> <span class="n">one</span> <span class="n">writeable</span> <span class="n">layer</span><span class="p">.</span> <span class="n">This</span> <span class="n">way</span> <span class="n">you</span> <span class="n">can</span> <span class="n">easily</span> <span class="n">run</span> <span class="n">different</span> <span class="n">configurations</span>
-    <span class="k">without</span> <span class="n">wiping</span> <span class="n">the</span> <span class="n">build</span><span class="o">-</span><span class="n">directory</span> <span class="n">completely</span><span class="p">.</span> <span class="k">As</span> <span class="n">this</span> <span class="n">requires</span> <span class="n">additional</span> <span class="n">setup</span><span class="p">,</span> <span class="n">it</span> <span class="k">is</span>
-    <span class="k">not</span> <span class="n">recommended</span> <span class="k">to</span> <span class="n">be</span> <span class="n">switched</span> <span class="k">on</span> <span class="k">by</span> <span class="k">default</span><span class="p">.</span>
-</code></pre></div>
-
-
-<h2 id="database">Database</h2>
-<p>BenchBuild stores results/maintenance data about your experiments inside a database.
-While a sqlite3 in-memory database is used by default, you might want to provide a more permanent solution to keep your experiment data persistent.</p>
-<h3 id="postgresql">PostgreSQL</h3>
-<p>The preferred way is using a more sophisticated DBMS such as PostgreSQL.
-If you are using features like SLURM, make sure that your DBMS is reachable from all nodes that might run benchbuild.</p>
-<p>Setup your postgres cluster with a user and a database for benchbuild to use.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span> <span class="k">USER</span> <span class="n">benchbuild</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">benchbuild</span><span class="p">;</span>
-</code></pre></div>
-
-
-<p>In the configuration you supply the complete connect-string in sqlalchemy's format, e.g.: <code>postgresql+psycopg2://benchbuild:benchbuild@localhost:5432/benchbuild</code></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .benchbuild.yml</span>
-<span class="nt">db</span><span class="p">:</span>
-  <span class="nt">connect_string</span><span class="p">:</span>
-    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sqlite://</span>
-    <span class="nt">value</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">postgresql+psycopg2://benchbuild:benchbuild@localhost:5432/benchbuild</span>
-</code></pre></div>
-
-
-<h3 id="sqlite">SQLite</h3>
-<p>As mentioned, by default we use an in-memory sqlite database. You can persist this one for your local usage, by supplying a filename in the database configuration.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .benchbuild.yml</span>
-<span class="nt">db</span><span class="p">:</span>
-  <span class="nt">connect_string</span><span class="p">:</span>
-    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sqlite://</span>
-    <span class="nt">value</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">sqlite:////absolute/path/to/sqlite.db</span>
-</code></pre></div>
-
-
-<h2 id="advanced-features">Advanced Features</h2>
-<p>Advanced features require additional packages on your system.</p>
-<h3 id="unionfs">UnionFS</h3>
-<p>We can maintain UnionFS mounts for uchroot-based projects, such as all Gentoo derived projects.
-This avoids continuous unpacking of the container-filesystem and keeps one unpacked version as
-a read-only layer at the bottom of the filesystem-stack.</p>
-<p>You need to configure subuid/subgid ranges in <code>/etc/subuid</code> <code>/etc/subgid</code> for the user that
-runs <code>benchbuild</code> in this mode. In addition, you need a working fuse installation. This involves
-an installation of <code>libfuse</code> with its headers.
-The <code>benchbuild bootstrap</code> command may help you with the installation and setup.</p>
-<h2 id="configuration">Configuration</h2>
-<p><code>benchbuild</code> can be configured in various ways: (1) command-line arguments, (2) configuration file in .json format, (3) environment variables.
-You can dump the current active configuration with the command:</p>
-<div class="codehilite"><pre><span></span><code>benchbuild run -d
-</code></pre></div>
-
-
-<h1 id="documentation">Documentation</h1>
-<p>For detailed API information please refer to the full
-<a href="https://polyjit.github.io/benchbuild">documentation</a>:</p>
-<p>You can dump this information in YAML format using the command:</p>
-<div class="codehilite"><pre><span></span><code>benchbuild run -s
-</code></pre></div>
-
-
-<p>It dumps _all_ configuration to YAML, even those that are usually derived automatically (like UUIDs).
-In the future, this will be avoided automatically.
-For now, you should remove all ID related variables from the resulting YAML file.
-The configuration file is searched from the current directory upwards automatically.
-Some key configuration variables:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">  BB_BUILD_DIR     The directory we place our temporary artifacts in.</span>
-<span class="err">  BB_TMP_DIR       The directory we place our downloads in.</span>
-<span class="err">  BB_CLEAN         Should the build directory be cleaned after the run?</span>
-<span class="err">  BB_CONFIG_FILE   Where is the config file? If you prefere an absolute location over automatic discovery.</span>
-<span class="err">  BB_DB_HOST       Hostname of the database</span>
-<span class="err">  BB_DB_NAME       Name of the database</span>
-<span class="err">  BB_DB_USER       Username of the database</span>
-<span class="err">  BB_DB_PASS       Password of the database</span>
-<span class="err">  BB_DB_ROLLBACK   For testing Rollback all db actions after a run.</span>
-<span class="err">  BB_JOBS          Number of threads to use for compiling / run-time testing.</span>
-</code></pre></div>
-
-
-<p>You can set these in the .json config file or directly via environment
-variables. However, make sure that the values you pass in from the
-environment are valid JSON, or the configuration structure may ignore
-your input (or break).</p>
-<h3 id="slurm-configuration">SLURM Configuration</h3>
-<p>If you want to run experiments in parallel on a cluster managed by
-SLURM, you can use BenchBuild to generate a bash script that is
-compatible with SLURM's sbatch command. The following settings control
-SLURM's configuration:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">  BB_SLURM_ACCOUNT         The resource account log in to.</span>
-<span class="err">  BB_SLURM_CPUS_PER_TASK   How many cores/threads should we request per node?</span>
-<span class="err">  BB_SLURM_EXCLUSIVE       Should we request the node exclusively or share it with other tasks?</span>
-<span class="err">  BB_SLURM_MAX_RUNNING     We generate array-Jobs. This parameter controls the number of array elements that are allowed to run in parallel.</span>
-<span class="err">  BB_SLURM_MULTITHREAD     Should Hyper-Threading be enabled or not?</span>
-<span class="err">  BB_SLURM_NICE            Adjust our priority on the cluster manually.</span>
-<span class="err">  BB_SLURM_NICE_CLEAN      Adjust the priority of the clean jobs.</span>
-<span class="err">  BB_SLURM_NODE_DIR        Where can we place our artifacts on the node?</span>
-<span class="err">  BB_SLURM_PARTITION       Which partition should we run in?</span>
-<span class="err">  BB_SLURM_SCRIPT          Base name of our resulting batch script.</span>
-<span class="err">  BB_SLURM_TIMELIMIT       Enforce a timelimit on our batch jobs.</span>
-</code></pre></div>
-
-
-<h3 id="gentoo-configuration">Gentoo Configuration</h3>
-<p>BenchBuild supports compile-time experiments on the complete portage
-tree of Gentoo Linux. You need to configure a few settings to make it
-work:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">  BB_GENTOO_AUTOTEST_LOC           A txt file that lists all gentoo package atoms that should be considered.</span>
-<span class="err">  BB_GENTOO_AUTOTEST_FTP_PROXY     Proxy server for gentoo downloads.</span>
-<span class="err">  BB_GENTOO_AUTOTEST_HTTP_PROXY    Proxy server for gentoo downloads.</span>
-<span class="err">  BB_GENTOO_AUTOTEST_RSYNC_PROXY   Proxy server for gentoo downloads.</span>
-</code></pre></div>
-
-
-<h4 id="convert-an-automatic-gentoo-project-to-a-static-one">Convert an automatic Gentoo project to a static one</h4>
-<p>Gentoo projects are generated dynamically based on the <code>AutoPortage</code>
-class found in <code>pprof.gentoo.portage_gen</code>. If you want to define
-run-time tests for a dynamically generated project, you need to convert
-it to a static one, i.e., define a subclass of <code>AutoPortage</code> and add it
-to the configuration.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pprof.projects.gentoo.portage_gen</span> <span class="kn">import</span> <span class="n">AutoPortage</span>
-
-<span class="k">class</span> <span class="nc">BZip</span><span class="p">(</span><span class="n">AutoPortage</span><span class="p">):</span>
-  <span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;app-arch&quot;</span>
-  <span class="n">DOMAIN</span> <span class="o">=</span> <span class="s2">&quot;bzip2&quot;</span>
-
-  <span class="k">def</span> <span class="nf">run_tests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add your custom test routines here.&quot;&quot;&quot;</span>
-</code></pre></div>
-
-
-<p>Now we just need to add this to the plugin registry via <code>benchbuild</code>'s
-configuration file @ <code>CFG["plugins"]["projects"]</code>.</p>
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-        
-          <a href="reference/benchbuild/container/" title="Container" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Container
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">BenchBuild</a>
       </nav>
-    </div>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>BenchBuild Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
   
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Powered by
-        <a href="http://timothycrosley.github.io/portray">portray.</a>
-        You too can
-        <a href="http://timothycrosley.github.io/portray">
-          portray</a>
-        your Python project well using automatic documentation.
-      </div>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                
+<h1 id="benchbuild-documentation">BenchBuild Documentation</h1>
+<p>BenchBuild is an open-source toolkit that helps with the management of case-studies used in software-driven empirical experiments.
+BenchBuild was specifically designed to make defined experiments reusable between different
+experiment setups. It mainly provides assistance with the following standard tasks found in empirical software experiments:</p>
+<ul>
+<li>Add a new case-study to an existing experiment setup.</li>
+<li>Add a new experiment to an existing body of case-studies.</li>
+</ul>
+<h2 id="design-philosophy">Design Philosophy</h2>
+<p>BenchBuild is designed with the following main properties in mind.</p>
+<h3 id="a-case-study-doesnt-know-its-experiment">A case-study doesn&#39;t know its experiment</h3>
+<p>If you add a new case-study, you should never have to rely on background information about the experiment you are about to run on it.
+A new case-study is only concerned with its own setup of dependencies and execution during its run-time. A case-study controls where and what can be
+intercepted by an experiment.</p>
+<h3 id="an-experiment-doesnt-know-its-case-studies">An experiment doesn&#39;t know its case-studies</h3>
+<p>Adding a new experiment never should have any knowledge about the case-studies
+it runs on.
+A new experiment takes care of intercepting the compilation process and/or the
+execution procedure of a given case-study. This only defines what is being done at the defined extension points at compile-time or run-time.</p>
+<h2 id="supported-python-versions">Supported Python Versions</h2>
+<p>BenchBuild supports Python 3.7 and 3.8. Main development is focused on Python 3.8, but an effort is made to support 3.7 as long as major distributions like Debian Linux only ship with 3.7 by default.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>See the <a href="">Installation guide</a> for help getting BenchBuild up and running quickly.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basics/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
       
     </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
   </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-    </div>
-    
-      <script src="assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="assets/javascripts/bundle.a14cc5fd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
       
-      <script>
-        app = initialize({
-          base: ".",
-          features: [],
-          search: Object.assign({
-            worker: "assets/javascripts/worker/search.7a2ea5ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+          <a href="https://github.com/PolyJIT/benchbuild" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
-    
-  </body>
+      
+      
+        <span style="margin-left: 15px"><a href="basics/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js"></script>
+      <script src="js/mkapi.js"></script>
+      <script src="js/pheasant.js"></script>
+      <script src="search/main.js"></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
 </html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-12-28 09:51:13.377336+00:00
+-->

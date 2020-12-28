@@ -1,455 +1,307 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/basics/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/basics/configuration/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/concepts/source/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/concepts/environments/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/concepts/projects/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/concepts/experiments/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/advanced/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.likwid/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.extensions/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.extensions.base/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.plugins/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.db.versions/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.db.versions.002_Remove_GlobalConfig_table/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.db.versions.001_Remove_RegressionTest_table/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.db.versions.003_Unmanage_Events/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.settings/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.lammps/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.xz/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.info/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.crafty/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.eix/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.portage_gen/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.gentoo/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.gzip/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.postgresql/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.x264/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.sevenz/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.gentoo.bzip2/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.lnt/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.projects.lnt.lnt/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.container/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.project/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.engine/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.experiments/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.experiments.raw/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.experiments.empty/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.environments.domain/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.environments.domain.declarative/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.experiment/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.slurm/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.main/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.log/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.run/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.project/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.cli.config/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.revision_ranges/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.slurm/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.tasks/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.bootstrap/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.wrapping/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.container/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.download/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.dict/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.db/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.settings/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.schema/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.versions/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.schedule_tree/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.run/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.path/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.compiler/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.actions/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.utils.user_interface/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.source/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.source.http/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.source.git/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.source.base/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.statistics/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/api/benchbuild.experiment/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-06-15</lastmod>
+     <loc>https://polyjit.github.io/benchbuild/CHANGELOG/</loc>
+     <lastmod>2020-12-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

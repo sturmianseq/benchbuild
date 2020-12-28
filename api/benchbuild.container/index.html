@@ -1,0 +1,3002 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="simbuerg">
+  <link rel="canonical" href="https://polyjit.github.io/benchbuild/api/benchbuild.container/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>benchbuild.container - BenchBuild</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/mkapi-common.css" rel="stylesheet" />
+  <link href="../../css/mkapi-readthedocs.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css" rel="stylesheet" />
+  <link href="../../css/pheasant.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "benchbuild.container";
+    var mkdocs_page_input_path = "api/benchbuild.container.md";
+    var mkdocs_page_url = "/benchbuild/api/benchbuild.container/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BenchBuild</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">BenchBuild Documentation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../basics/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../basics/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Concepts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/source/">Source</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/environments/">Environment</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/projects/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/experiments/">Experiment</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Advanced Usage</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/">TODO</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild/">benchbuild</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.likwid/">benchbuild.likwid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.extensions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.extensions/">benchbuild.extensions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.extensions.base/">benchbuild.extensions.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.plugins/">benchbuild.plugins</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.db.versions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions/">benchbuild.db.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.002_Remove_GlobalConfig_table/">benchbuild.db.versions.002_Remove_GlobalConfig_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.001_Remove_RegressionTest_table/">benchbuild.db.versions.001_Remove_RegressionTest_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.003_Unmanage_Events/">benchbuild.db.versions.003_Unmanage_Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.settings/">benchbuild.settings</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects/">benchbuild.projects</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.gentoo</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo/">benchbuild.projects.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.lammps/">benchbuild.projects.gentoo.lammps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.xz/">benchbuild.projects.gentoo.xz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.info/">benchbuild.projects.gentoo.info</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.crafty/">benchbuild.projects.gentoo.crafty</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.eix/">benchbuild.projects.gentoo.eix</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.portage_gen/">benchbuild.projects.gentoo.portage_gen</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.gentoo/">benchbuild.projects.gentoo.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.gzip/">benchbuild.projects.gentoo.gzip</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.postgresql/">benchbuild.projects.gentoo.postgresql</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.x264/">benchbuild.projects.gentoo.x264</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.sevenz/">benchbuild.projects.gentoo.sevenz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.bzip2/">benchbuild.projects.gentoo.bzip2</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">benchbuild.projects.lnt</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.lnt/">benchbuild.projects.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.lnt.lnt/">benchbuild.projects.lnt.lnt</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">benchbuild.container</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainerclean_directories">clean_directories</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainersetup_directories">setup_directories</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainersetup_container">setup_container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainerrun_in_container">run_in_container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainerpack_container">pack_container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainersetup_bash_in_container">setup_bash_in_container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainerfind_hash">find_hash</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainerset_input_container">set_input_container</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainermockobj">MockObj</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainercontainerstrategy">ContainerStrategy</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerstrategyrun">run</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainerbashstrategy">BashStrategy</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainerbashstrategyrun">run</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainersetuppolyjitgentoostrategy">SetupPolyJITGentooStrategy</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainersetuppolyjitgentoostrategyrun">run</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainercontainer">Container</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationnew">new</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationunbind_switches">unbind_switches</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationsubcommand">subcommand</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationautocomplete">autocomplete</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationrun">run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationinvoke">invoke</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationcleanup">cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelpall">helpall</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelp">help</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationversion">version</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerinput_file">input_file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontaineroutput_file">output_file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainershell">shell</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerbuilddir">builddir</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainermounts">mounts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainermain">main</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainercontainerrun">ContainerRun</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationnew_1">new</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationunbind_switches_1">unbind_switches</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationsubcommand_1">subcommand</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationautocomplete_1">autocomplete</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationrun_1">run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationinvoke_1">invoke</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationcleanup_1">cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelpall_1">helpall</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelp_1">help</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationversion_1">version</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerrunmain">main</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainercontainercreate">ContainerCreate</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationnew_2">new</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationunbind_switches_2">unbind_switches</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationsubcommand_2">subcommand</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationautocomplete_2">autocomplete</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationrun_2">run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationinvoke_2">invoke</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationcleanup_2">cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelpall_2">helpall</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelp_2">help</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationversion_2">version</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainercreatestrategy">strategy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainercreatemain">main</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainercontainerbootstrap">ContainerBootstrap</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationnew_3">new</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationunbind_switches_3">unbind_switches</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationsubcommand_3">subcommand</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationautocomplete_3">autocomplete</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationrun_3">run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationinvoke_3">invoke</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationcleanup_3">cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelpall_3">helpall</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelp_3">help</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationversion_3">version</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerbootstrapinstall_cmake_and_exit">install_cmake_and_exit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerbootstrapmain">main</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainercontainerlist">ContainerList</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationnew_4">new</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationunbind_switches_4">unbind_switches</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationsubcommand_4">subcommand</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationautocomplete_4">autocomplete</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationrun_4">run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationinvoke_4">invoke</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationcleanup_4">cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelpall_4">helpall</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationhelp_4">help</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#plumbumcliapplicationapplicationversion_4">version</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#benchbuildcontainercontainerlistmain">main</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benchbuildcontainermain">main</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.project/">benchbuild.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.engine/">benchbuild.engine</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.experiments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments/">benchbuild.experiments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments.raw/">benchbuild.experiments.raw</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments.empty/">benchbuild.experiments.empty</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.environments.domain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.environments.domain/">benchbuild.environments.domain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.environments.domain.declarative/">benchbuild.environments.domain.declarative</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.cli</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli/">benchbuild.cli</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.experiment/">benchbuild.cli.experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.slurm/">benchbuild.cli.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.main/">benchbuild.cli.main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.log/">benchbuild.cli.log</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.run/">benchbuild.cli.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.project/">benchbuild.cli.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.config/">benchbuild.cli.config</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils/">benchbuild.utils</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.revision_ranges/">benchbuild.utils.revision_ranges</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.slurm/">benchbuild.utils.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.tasks/">benchbuild.utils.tasks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.bootstrap/">benchbuild.utils.bootstrap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.wrapping/">benchbuild.utils.wrapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.container/">benchbuild.utils.container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.download/">benchbuild.utils.download</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.dict/">benchbuild.utils.dict</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.db/">benchbuild.utils.db</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.settings/">benchbuild.utils.settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.schema/">benchbuild.utils.schema</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.versions/">benchbuild.utils.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.schedule_tree/">benchbuild.utils.schedule_tree</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.run/">benchbuild.utils.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.path/">benchbuild.utils.path</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.compiler/">benchbuild.utils.compiler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.actions/">benchbuild.utils.actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.user_interface/">benchbuild.utils.user_interface</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.source</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source/">benchbuild.source</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.http/">benchbuild.source.http</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.git/">benchbuild.source.git</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.base/">benchbuild.source.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.statistics/">benchbuild.statistics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiment/">benchbuild.experiment</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release Notes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BenchBuild</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>benchbuild.projects.lnt &raquo;</li>
+        
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>benchbuild.container</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                
+<div class="mkapi-node" id="benchbuild.container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h1 id="benchbuildcontainer" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="../benchbuild/#benchbuild">benchbuild</a>.</span><span class="mkapi-object-name">container</span></h1>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container" title="Source for benchbuild.container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Container construction tool.</p>
+<p>This tool assists in the creation of customized uchroot containers.
+You can define strategies and apply them on a given container base-image
+to have a fixed way of creating a user-space environment.</p></div>
+    </div>
+  <div class="mkapi-section classes">
+      <div class="mkapi-section-name classes">
+          <span class="mkapi-section-name-body classes">Classes</span> 
+        </div>
+      <div class="mkapi-section-body classes"><ul class="mkapi-items">
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.MockObj">MockObj</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Context object to be used in strategies.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.MockObj" title="Source for benchbuild.container.MockObj">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerStrategy">ContainerStrategy</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Interfaces for the different containers chosen by the experiment.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerStrategy" title="Source for benchbuild.container.ContainerStrategy">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.BashStrategy">BashStrategy</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The user interface for setting up a bash inside the container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.BashStrategy" title="Source for benchbuild.container.BashStrategy">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.SetupPolyJITGentooStrategy">SetupPolyJITGentooStrategy</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Interface of using gentoo as a container for an experiment.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.SetupPolyJITGentooStrategy" title="Source for benchbuild.container.SetupPolyJITGentooStrategy">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.Container">Container</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Manage uchroot containers.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container" title="Source for benchbuild.container.Container">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerRun">ContainerRun</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Execute commannds inside a prebuilt container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerRun" title="Source for benchbuild.container.ContainerRun">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerCreate">ContainerCreate</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Create a new container with a predefined strategy.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate" title="Source for benchbuild.container.ContainerCreate">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerBootstrap">ContainerBootstrap</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Check for the needed files.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap" title="Source for benchbuild.container.ContainerBootstrap">&lt;/&gt;</a></span></li>
+
+<li class="class"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerList">ContainerList</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints a list of the known containers.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerList" title="Source for benchbuild.container.ContainerList">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.clean_directories">clean_directories</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">in_dir</code>, <code class="mkapi-object-signature">out_dir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Remove the in and out of the container if confirmed by the user.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.clean_directories" title="Source for benchbuild.container.clean_directories">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.find_hash">find_hash</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">container_db</code>, <code class="mkapi-object-signature">key</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Find the first container in the database with the given key.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.find_hash" title="Source for benchbuild.container.find_hash">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Main entry point for the container tool.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.main" title="Source for benchbuild.container.main">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.pack_container">pack_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">in_container</code>, <code class="mkapi-object-signature">out_file</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Pack a container image into a .tar.bz2 archive.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.pack_container" title="Source for benchbuild.container.pack_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.run_in_container">run_in_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">command</code>, <code class="mkapi-object-signature">container_dir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Run a given command inside a container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.run_in_container" title="Source for benchbuild.container.run_in_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.set_input_container">set_input_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code>, <code class="mkapi-object-signature">cfg</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Save the input for the container in the configurations.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.set_input_container" title="Source for benchbuild.container.set_input_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.setup_bash_in_container">setup_bash_in_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">_container</code>, <code class="mkapi-object-signature">outfile</code>, <code class="mkapi-object-signature">shell</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Setup a bash environment inside a container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_bash_in_container" title="Source for benchbuild.container.setup_bash_in_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.setup_container">setup_container</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prepare the container and returns the path where it can be found.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_container" title="Source for benchbuild.container.setup_container">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.container.setup_directories">setup_directories</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Create the in and out directories of the container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_directories" title="Source for benchbuild.container.setup_directories">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.clean_directories">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainerclean_directories" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">clean_directories</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">in_dir=True</code>, <code class="mkapi-object-signature">out_dir=True</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.clean_directories" title="Source for benchbuild.container.clean_directories">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Remove the in and out of the container if confirmed by the user.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.setup_directories">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainersetup_directories" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">setup_directories</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_directories" title="Source for benchbuild.container.setup_directories">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Create the in and out directories of the container.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.setup_container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainersetup_container" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">setup_container</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_container" title="Source for benchbuild.container.setup_container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prepare the container and returns the path where it can be found.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.run_in_container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainerrun_in_container" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">run_in_container</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">command</code>, <code class="mkapi-object-signature">container_dir</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.run_in_container" title="Source for benchbuild.container.run_in_container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Run a given command inside a container.</p>
+<p>Mounts a directory as a container at the given mountpoint and tries to run
+the given command inside the new container.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.pack_container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainerpack_container" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">pack_container</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">in_container</code>, <code class="mkapi-object-signature">out_file</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.pack_container" title="Source for benchbuild.container.pack_container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Pack a container image into a .tar.bz2 archive.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">in_container</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Path string to the container image.</span></li>
+
+<li><code class="mkapi-item-name">out_file</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Output file name.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.setup_bash_in_container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainersetup_bash_in_container" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">setup_bash_in_container</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">builddir</code>, <code class="mkapi-object-signature">_container</code>, <code class="mkapi-object-signature">outfile</code>, <code class="mkapi-object-signature">shell</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.setup_bash_in_container" title="Source for benchbuild.container.setup_bash_in_container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Setup a bash environment inside a container.</p>
+<p>Creates a new chroot, which the user can use as a bash to run the wanted
+projects inside the mounted container, that also gets returned afterwards.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.find_hash">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainerfind_hash" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">find_hash</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">container_db</code>, <code class="mkapi-object-signature">key</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.find_hash" title="Source for benchbuild.container.find_hash">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Find the first container in the database with the given key.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.set_input_container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainerset_input_container" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">set_input_container</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code>, <code class="mkapi-object-signature">cfg</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.set_input_container" title="Source for benchbuild.container.set_input_container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Save the input for the container in the configurations.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.MockObj">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainermockobj" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">MockObj</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">**kwargs</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.MockObj" title="Source for benchbuild.container.MockObj">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Context object to be used in strategies.</p>
+<p>This object's attributes are initialized on construction.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.ContainerStrategy">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainercontainerstrategy" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">ContainerStrategy</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerStrategy" title="Source for benchbuild.container.ContainerStrategy">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Interfaces for the different containers chosen by the experiment.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="abstract-method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerStrategy.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">context</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Execute a container strategy.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerStrategy.run" title="Source for benchbuild.container.ContainerStrategy.run">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerStrategy.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object abstract-method code">
+    <div class="mkapi-object-kind abstract-method">abstract method</div>
+    <h3 id="benchbuildcontainercontainerstrategyrun" class="mkapi-object-body abstract-method"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">context</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerStrategy.run" title="Source for benchbuild.container.ContainerStrategy.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Execute a container strategy.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">context</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A context object with attributes used for the strategy.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.BashStrategy">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainerbashstrategy" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">BashStrategy</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.BashStrategy" title="Source for benchbuild.container.BashStrategy">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base"><a href="./#benchbuild.container.ContainerStrategy">benchbuild.container.ContainerStrategy</a></span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>The user interface for setting up a bash inside the container.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.BashStrategy.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">context</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Execute a container strategy.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.BashStrategy.run" title="Source for benchbuild.container.BashStrategy.run">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.BashStrategy.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainerbashstrategyrun" class="mkapi-object-body method"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">context</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.BashStrategy.run" title="Source for benchbuild.container.BashStrategy.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Execute a container strategy.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">context</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A context object with attributes used for the strategy.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.SetupPolyJITGentooStrategy">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainersetuppolyjitgentoostrategy" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">SetupPolyJITGentooStrategy</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.SetupPolyJITGentooStrategy" title="Source for benchbuild.container.SetupPolyJITGentooStrategy">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base"><a href="./#benchbuild.container.ContainerStrategy">benchbuild.container.ContainerStrategy</a></span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Interface of using gentoo as a container for an experiment.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.SetupPolyJITGentooStrategy.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">context</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Setup a gentoo container suitable for PolyJIT.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.SetupPolyJITGentooStrategy.run" title="Source for benchbuild.container.SetupPolyJITGentooStrategy.run">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.SetupPolyJITGentooStrategy.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainersetuppolyjitgentoostrategyrun" class="mkapi-object-body method"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">context</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.SetupPolyJITGentooStrategy.run" title="Source for benchbuild.container.SetupPolyJITGentooStrategy.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Setup a gentoo container suitable for PolyJIT.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">context</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A context object with attributes used for the strategy.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.Container">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainercontainer" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">Container</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container" title="Source for benchbuild.container.Container">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base">plumbum.cli.application.Application</span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Manage uchroot containers.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="staticmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.__new__">__new__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.autocomplete">autocomplete</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">This is supplied to make subclassing and testing argument completion methods easier<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.Container.builddir">builddir</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">tmpdir</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Set the current builddir of the container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.builddir" title="Source for benchbuild.container.Container.builddir">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.cleanup">cleanup</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.help">help</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints this help message and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.helpall">helpall</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints help messages of all sub-commands and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.Container.input_file">input_file</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Find the input path of a uchroot container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.input_file" title="Source for benchbuild.container.Container.input_file">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.invoke">invoke</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.Container.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Implement me (no need to call super)<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.main" title="Source for benchbuild.container.Container.main">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.Container.mounts">mounts</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">user_mount</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Save the current mount of the container into the settings.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.mounts" title="Source for benchbuild.container.Container.mounts">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.Container.output_file">output_file</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Find and writes the output path of a chroot container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.output_file" title="Source for benchbuild.container.Container.output_file">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code>, <code class="mkapi-object-signature">exit</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.Container.shell">shell</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">custom_shell</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The command to run inside the container.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.shell" title="Source for benchbuild.container.Container.shell">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.subcommand">subcommand</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.unbind_switches">unbind_switches</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Unbinds the given switch names from this application. For example<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.version">version</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints the program's version and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.__new__">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object staticmethod code">
+    <div class="mkapi-object-kind staticmethod">staticmethod</div>
+    <h3 id="plumbumcliapplicationapplicationnew" class="mkapi-object-body staticmethod"><code class="mkapi-object-name">__new__</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.unbind_switches">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationunbind_switches" class="mkapi-object-body classmethod"><code class="mkapi-object-name">unbind_switches</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Unbinds the given switch names from this application. For example</p>
+<p>::</p>
+<div class="highlight"><pre><span></span><code>class MyApp(cli.Application):
+    pass
+MyApp.unbind_switches(&quot;--version&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.subcommand">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationsubcommand" class="mkapi-object-body classmethod"><code class="mkapi-object-name">subcommand</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::</p>
+<div class="highlight"><pre><span></span><code>@MyApp.subcommand(&quot;foo&quot;)
+class FooApp(cli.Application):
+    pass
+</code></pre></div>
+<p>Or ::</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, FooApp)
+</code></pre></div>
+<p>.. versionadded:: 1.1</p>
+<p>.. versionadded:: 1.3
+    The sub-command can also be a string, in which case it is treated as a
+    fully-qualified class name and is imported on demand. For example,</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, &quot;fully.qualified.package.FooApp&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.autocomplete">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationautocomplete" class="mkapi-object-body classmethod"><code class="mkapi-object-name">autocomplete</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>This is supplied to make subclassing and testing argument completion methods easier</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationrun" class="mkapi-object-body classmethod"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv=None</code>, <code class="mkapi-object-signature">exit=True</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.</p>
+<p>.. note::
+   Setting <code>exit</code> to <code>False</code> is intendend for testing/debugging purposes only -- do
+   not override it in other situations.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.invoke">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationinvoke" class="mkapi-object-body classmethod"><code class="mkapi-object-name">invoke</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.</p>
+<p>:param args: any positional arguments for <code>main()</code>
+:param switches: command-line switches are passed as keyword arguments,
+                 e.g., <code>foo=5</code> for <code>--foo=5</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.cleanup">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationcleanup" class="mkapi-object-body method"><code class="mkapi-object-name">cleanup</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.</p>
+<p>:param retcode: the return code of <code>main()</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.helpall">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelpall" class="mkapi-object-body method"><code class="mkapi-object-name">helpall</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints help messages of all sub-commands and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.help">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelp" class="mkapi-object-body method"><code class="mkapi-object-name">help</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints this help message and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.version">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationversion" class="mkapi-object-body method"><code class="mkapi-object-name">version</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints the program's version and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.Container.input_file">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainerinput_file" class="mkapi-object-body method"><code class="mkapi-object-name">input_file</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.input_file" title="Source for benchbuild.container.Container.input_file">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Find the input path of a uchroot container.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.Container.output_file">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontaineroutput_file" class="mkapi-object-body method"><code class="mkapi-object-name">output_file</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">_container</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.output_file" title="Source for benchbuild.container.Container.output_file">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Find and writes the output path of a chroot container.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.Container.shell">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainershell" class="mkapi-object-body method"><code class="mkapi-object-name">shell</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">custom_shell</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.shell" title="Source for benchbuild.container.Container.shell">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>The command to run inside the container.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.Container.builddir">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainerbuilddir" class="mkapi-object-body method"><code class="mkapi-object-name">builddir</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">tmpdir</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.builddir" title="Source for benchbuild.container.Container.builddir">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Set the current builddir of the container.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.Container.mounts">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainermounts" class="mkapi-object-body method"><code class="mkapi-object-name">mounts</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">user_mount</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.mounts" title="Source for benchbuild.container.Container.mounts">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Save the current mount of the container into the settings.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.Container.main">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainermain" class="mkapi-object-body method"><code class="mkapi-object-name">main</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.Container.main" title="Source for benchbuild.container.Container.main">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Implement me (no need to call super)</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.ContainerRun">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainercontainerrun" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">ContainerRun</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerRun" title="Source for benchbuild.container.ContainerRun">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base">plumbum.cli.application.Application</span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Execute commannds inside a prebuilt container.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="staticmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.__new__">__new__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.autocomplete">autocomplete</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">This is supplied to make subclassing and testing argument completion methods easier<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.cleanup">cleanup</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.help">help</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints this help message and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.helpall">helpall</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints help messages of all sub-commands and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.invoke">invoke</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerRun.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Implement me (no need to call super)<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerRun.main" title="Source for benchbuild.container.ContainerRun.main">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code>, <code class="mkapi-object-signature">exit</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.subcommand">subcommand</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.unbind_switches">unbind_switches</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Unbinds the given switch names from this application. For example<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.version">version</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints the program's version and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.__new__">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object staticmethod code">
+    <div class="mkapi-object-kind staticmethod">staticmethod</div>
+    <h3 id="plumbumcliapplicationapplicationnew_1" class="mkapi-object-body staticmethod"><code class="mkapi-object-name">__new__</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.unbind_switches">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationunbind_switches_1" class="mkapi-object-body classmethod"><code class="mkapi-object-name">unbind_switches</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Unbinds the given switch names from this application. For example</p>
+<p>::</p>
+<div class="highlight"><pre><span></span><code>class MyApp(cli.Application):
+    pass
+MyApp.unbind_switches(&quot;--version&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.subcommand">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationsubcommand_1" class="mkapi-object-body classmethod"><code class="mkapi-object-name">subcommand</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::</p>
+<div class="highlight"><pre><span></span><code>@MyApp.subcommand(&quot;foo&quot;)
+class FooApp(cli.Application):
+    pass
+</code></pre></div>
+<p>Or ::</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, FooApp)
+</code></pre></div>
+<p>.. versionadded:: 1.1</p>
+<p>.. versionadded:: 1.3
+    The sub-command can also be a string, in which case it is treated as a
+    fully-qualified class name and is imported on demand. For example,</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, &quot;fully.qualified.package.FooApp&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.autocomplete">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationautocomplete_1" class="mkapi-object-body classmethod"><code class="mkapi-object-name">autocomplete</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>This is supplied to make subclassing and testing argument completion methods easier</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationrun_1" class="mkapi-object-body classmethod"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv=None</code>, <code class="mkapi-object-signature">exit=True</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.</p>
+<p>.. note::
+   Setting <code>exit</code> to <code>False</code> is intendend for testing/debugging purposes only -- do
+   not override it in other situations.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.invoke">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationinvoke_1" class="mkapi-object-body classmethod"><code class="mkapi-object-name">invoke</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.</p>
+<p>:param args: any positional arguments for <code>main()</code>
+:param switches: command-line switches are passed as keyword arguments,
+                 e.g., <code>foo=5</code> for <code>--foo=5</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.cleanup">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationcleanup_1" class="mkapi-object-body method"><code class="mkapi-object-name">cleanup</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.</p>
+<p>:param retcode: the return code of <code>main()</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.helpall">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelpall_1" class="mkapi-object-body method"><code class="mkapi-object-name">helpall</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints help messages of all sub-commands and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.help">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelp_1" class="mkapi-object-body method"><code class="mkapi-object-name">help</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints this help message and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.version">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationversion_1" class="mkapi-object-body method"><code class="mkapi-object-name">version</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints the program's version and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerRun.main">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainerrunmain" class="mkapi-object-body method"><code class="mkapi-object-name">main</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerRun.main" title="Source for benchbuild.container.ContainerRun.main">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Implement me (no need to call super)</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.ContainerCreate">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainercontainercreate" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">ContainerCreate</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate" title="Source for benchbuild.container.ContainerCreate">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base">plumbum.cli.application.Application</span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Create a new container with a predefined strategy.</p>
+<p>We offer a variety of creation policies for a new container. By default a
+basic 'spawn a bash' policy is used. This just leaves you inside a bash
+that is started in the extracted container. After customization you can
+exit the bash and pack up the result.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="staticmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.__new__">__new__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.autocomplete">autocomplete</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">This is supplied to make subclassing and testing argument completion methods easier<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.cleanup">cleanup</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.help">help</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints this help message and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.helpall">helpall</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints help messages of all sub-commands and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.invoke">invoke</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerCreate.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Implement me (no need to call super)<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate.main" title="Source for benchbuild.container.ContainerCreate.main">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code>, <code class="mkapi-object-signature">exit</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerCreate.strategy">strategy</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">strategy</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Select strategy based on key.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate.strategy" title="Source for benchbuild.container.ContainerCreate.strategy">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.subcommand">subcommand</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.unbind_switches">unbind_switches</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Unbinds the given switch names from this application. For example<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.version">version</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints the program's version and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.__new__">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object staticmethod code">
+    <div class="mkapi-object-kind staticmethod">staticmethod</div>
+    <h3 id="plumbumcliapplicationapplicationnew_2" class="mkapi-object-body staticmethod"><code class="mkapi-object-name">__new__</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.unbind_switches">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationunbind_switches_2" class="mkapi-object-body classmethod"><code class="mkapi-object-name">unbind_switches</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Unbinds the given switch names from this application. For example</p>
+<p>::</p>
+<div class="highlight"><pre><span></span><code>class MyApp(cli.Application):
+    pass
+MyApp.unbind_switches(&quot;--version&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.subcommand">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationsubcommand_2" class="mkapi-object-body classmethod"><code class="mkapi-object-name">subcommand</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::</p>
+<div class="highlight"><pre><span></span><code>@MyApp.subcommand(&quot;foo&quot;)
+class FooApp(cli.Application):
+    pass
+</code></pre></div>
+<p>Or ::</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, FooApp)
+</code></pre></div>
+<p>.. versionadded:: 1.1</p>
+<p>.. versionadded:: 1.3
+    The sub-command can also be a string, in which case it is treated as a
+    fully-qualified class name and is imported on demand. For example,</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, &quot;fully.qualified.package.FooApp&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.autocomplete">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationautocomplete_2" class="mkapi-object-body classmethod"><code class="mkapi-object-name">autocomplete</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>This is supplied to make subclassing and testing argument completion methods easier</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationrun_2" class="mkapi-object-body classmethod"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv=None</code>, <code class="mkapi-object-signature">exit=True</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.</p>
+<p>.. note::
+   Setting <code>exit</code> to <code>False</code> is intendend for testing/debugging purposes only -- do
+   not override it in other situations.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.invoke">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationinvoke_2" class="mkapi-object-body classmethod"><code class="mkapi-object-name">invoke</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.</p>
+<p>:param args: any positional arguments for <code>main()</code>
+:param switches: command-line switches are passed as keyword arguments,
+                 e.g., <code>foo=5</code> for <code>--foo=5</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.cleanup">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationcleanup_2" class="mkapi-object-body method"><code class="mkapi-object-name">cleanup</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.</p>
+<p>:param retcode: the return code of <code>main()</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.helpall">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelpall_2" class="mkapi-object-body method"><code class="mkapi-object-name">helpall</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints help messages of all sub-commands and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.help">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelp_2" class="mkapi-object-body method"><code class="mkapi-object-name">help</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints this help message and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.version">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationversion_2" class="mkapi-object-body method"><code class="mkapi-object-name">version</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints the program's version and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerCreate.strategy">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainercreatestrategy" class="mkapi-object-body method"><code class="mkapi-object-name">strategy</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">strategy</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate.strategy" title="Source for benchbuild.container.ContainerCreate.strategy">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Select strategy based on key.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">strategy</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The strategy to select.</span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section returns">
+      <div class="mkapi-section-name returns">
+          <span class="mkapi-section-name-body returns">Returns</span> 
+        </div>
+      <div class="mkapi-section-body returns"><p>A strategy object.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerCreate.main">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainercreatemain" class="mkapi-object-body method"><code class="mkapi-object-name">main</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerCreate.main" title="Source for benchbuild.container.ContainerCreate.main">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Implement me (no need to call super)</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.ContainerBootstrap">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainercontainerbootstrap" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">ContainerBootstrap</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap" title="Source for benchbuild.container.ContainerBootstrap">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base">plumbum.cli.application.Application</span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Check for the needed files.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="staticmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.__new__">__new__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.autocomplete">autocomplete</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">This is supplied to make subclassing and testing argument completion methods easier<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.cleanup">cleanup</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.help">help</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints this help message and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.helpall">helpall</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints help messages of all sub-commands and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerBootstrap.install_cmake_and_exit">install_cmake_and_exit</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Tell the user to install cmake and aborts the current process.<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap.install_cmake_and_exit" title="Source for benchbuild.container.ContainerBootstrap.install_cmake_and_exit">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.invoke">invoke</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerBootstrap.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Implement me (no need to call super)<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap.main" title="Source for benchbuild.container.ContainerBootstrap.main">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code>, <code class="mkapi-object-signature">exit</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.subcommand">subcommand</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.unbind_switches">unbind_switches</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Unbinds the given switch names from this application. For example<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.version">version</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints the program's version and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.__new__">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object staticmethod code">
+    <div class="mkapi-object-kind staticmethod">staticmethod</div>
+    <h3 id="plumbumcliapplicationapplicationnew_3" class="mkapi-object-body staticmethod"><code class="mkapi-object-name">__new__</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.unbind_switches">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationunbind_switches_3" class="mkapi-object-body classmethod"><code class="mkapi-object-name">unbind_switches</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Unbinds the given switch names from this application. For example</p>
+<p>::</p>
+<div class="highlight"><pre><span></span><code>class MyApp(cli.Application):
+    pass
+MyApp.unbind_switches(&quot;--version&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.subcommand">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationsubcommand_3" class="mkapi-object-body classmethod"><code class="mkapi-object-name">subcommand</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::</p>
+<div class="highlight"><pre><span></span><code>@MyApp.subcommand(&quot;foo&quot;)
+class FooApp(cli.Application):
+    pass
+</code></pre></div>
+<p>Or ::</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, FooApp)
+</code></pre></div>
+<p>.. versionadded:: 1.1</p>
+<p>.. versionadded:: 1.3
+    The sub-command can also be a string, in which case it is treated as a
+    fully-qualified class name and is imported on demand. For example,</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, &quot;fully.qualified.package.FooApp&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.autocomplete">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationautocomplete_3" class="mkapi-object-body classmethod"><code class="mkapi-object-name">autocomplete</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>This is supplied to make subclassing and testing argument completion methods easier</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationrun_3" class="mkapi-object-body classmethod"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv=None</code>, <code class="mkapi-object-signature">exit=True</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.</p>
+<p>.. note::
+   Setting <code>exit</code> to <code>False</code> is intendend for testing/debugging purposes only -- do
+   not override it in other situations.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.invoke">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationinvoke_3" class="mkapi-object-body classmethod"><code class="mkapi-object-name">invoke</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.</p>
+<p>:param args: any positional arguments for <code>main()</code>
+:param switches: command-line switches are passed as keyword arguments,
+                 e.g., <code>foo=5</code> for <code>--foo=5</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.cleanup">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationcleanup_3" class="mkapi-object-body method"><code class="mkapi-object-name">cleanup</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.</p>
+<p>:param retcode: the return code of <code>main()</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.helpall">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelpall_3" class="mkapi-object-body method"><code class="mkapi-object-name">helpall</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints help messages of all sub-commands and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.help">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelp_3" class="mkapi-object-body method"><code class="mkapi-object-name">help</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints this help message and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.version">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationversion_3" class="mkapi-object-body method"><code class="mkapi-object-name">version</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints the program's version and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerBootstrap.install_cmake_and_exit">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainerbootstrapinstall_cmake_and_exit" class="mkapi-object-body method"><code class="mkapi-object-name">install_cmake_and_exit</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap.install_cmake_and_exit" title="Source for benchbuild.container.ContainerBootstrap.install_cmake_and_exit">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Tell the user to install cmake and aborts the current process.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerBootstrap.main">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainerbootstrapmain" class="mkapi-object-body method"><code class="mkapi-object-name">main</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerBootstrap.main" title="Source for benchbuild.container.ContainerBootstrap.main">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Implement me (no need to call super)</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.ContainerList">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="benchbuildcontainercontainerlist" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">ContainerList</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerList" title="Source for benchbuild.container.ContainerList">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base">plumbum.cli.application.Application</span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints a list of the known containers.</p></div>
+    </div>
+  <div class="mkapi-section methods">
+      <div class="mkapi-section-name methods">
+          <span class="mkapi-section-name-body methods">Methods</span> 
+        </div>
+      <div class="mkapi-section-body methods"><ul class="mkapi-items">
+<li class="staticmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.__new__">__new__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.autocomplete">autocomplete</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">This is supplied to make subclassing and testing argument completion methods easier<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.cleanup">cleanup</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.help">help</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints this help message and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.helpall">helpall</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints help messages of all sub-commands and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.invoke">invoke</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#benchbuild.container.ContainerList.main">main</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Implement me (no need to call super)<a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerList.main" title="Source for benchbuild.container.ContainerList.main">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.run">run</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code>, <code class="mkapi-object-signature">exit</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.subcommand">subcommand</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a></span></li>
+
+<li class="classmethod"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.unbind_switches">unbind_switches</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Unbinds the given switch names from this application. For example<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a></span></li>
+
+<li class="method"><code class="mkapi-item-name"><a href="#plumbum.cli.application.Application.version">version</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Prints the program's version and quits<a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+  <div class="mkapi-members">
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.__new__">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object staticmethod code">
+    <div class="mkapi-object-kind staticmethod">staticmethod</div>
+    <h3 id="plumbumcliapplicationapplicationnew_4" class="mkapi-object-body staticmethod"><code class="mkapi-object-name">__new__</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">cls</code>, <code class="mkapi-object-signature">executable=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.__new__" title="Source for plumbum.cli.application.Application.__new__">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Allows running the class directly as a shortcut for main.
+This is necessary for some setup scripts that want a single function,
+instead of an expression with a dot in it.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.unbind_switches">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationunbind_switches_4" class="mkapi-object-body classmethod"><code class="mkapi-object-name">unbind_switches</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*switch_names</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.unbind_switches" title="Source for plumbum.cli.application.Application.unbind_switches">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Unbinds the given switch names from this application. For example</p>
+<p>::</p>
+<div class="highlight"><pre><span></span><code>class MyApp(cli.Application):
+    pass
+MyApp.unbind_switches(&quot;--version&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.subcommand">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationsubcommand_4" class="mkapi-object-body classmethod"><code class="mkapi-object-name">subcommand</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">name</code>, <code class="mkapi-object-signature">subapp=None</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.subcommand" title="Source for plumbum.cli.application.Application.subcommand">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Registers the given sub-application as a sub-command of this one. This method can be
+used both as a decorator and as a normal <code>classmethod</code>::</p>
+<div class="highlight"><pre><span></span><code>@MyApp.subcommand(&quot;foo&quot;)
+class FooApp(cli.Application):
+    pass
+</code></pre></div>
+<p>Or ::</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, FooApp)
+</code></pre></div>
+<p>.. versionadded:: 1.1</p>
+<p>.. versionadded:: 1.3
+    The sub-command can also be a string, in which case it is treated as a
+    fully-qualified class name and is imported on demand. For example,</p>
+<div class="highlight"><pre><span></span><code>MyApp.subcommand(&quot;foo&quot;, &quot;fully.qualified.package.FooApp&quot;)
+</code></pre></div></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.autocomplete">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationautocomplete_4" class="mkapi-object-body classmethod"><code class="mkapi-object-name">autocomplete</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.autocomplete" title="Source for plumbum.cli.application.Application.autocomplete">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>This is supplied to make subclassing and testing argument completion methods easier</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.run">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationrun_4" class="mkapi-object-body classmethod"><code class="mkapi-object-name">run</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">argv=None</code>, <code class="mkapi-object-signature">exit=True</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.run" title="Source for plumbum.cli.application.Application.run">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Runs the application, taking the arguments from <code>sys.argv</code> by default if
+nothing is passed. If <code>exit</code> is
+<code>True</code> (the default), the function will exit with the appropriate return code;
+otherwise it will return a tuple of <code>(inst, retcode)</code>, where <code>inst</code> is the
+application instance created internally by this function and <code>retcode</code> is the
+exit code of the application.</p>
+<p>.. note::
+   Setting <code>exit</code> to <code>False</code> is intendend for testing/debugging purposes only -- do
+   not override it in other situations.</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.invoke">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object classmethod code">
+    <div class="mkapi-object-kind classmethod">classmethod</div>
+    <h3 id="plumbumcliapplicationapplicationinvoke_4" class="mkapi-object-body classmethod"><code class="mkapi-object-name">invoke</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code>, <code class="mkapi-object-signature">**switches</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.invoke" title="Source for plumbum.cli.application.Application.invoke">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Invoke this application programmatically (as a function), in the same way <code>run()</code>
+would. There are two key differences: the return value of <code>main()</code> is not converted to
+an integer (returned as-is), and exceptions are not swallowed either.</p>
+<p>:param args: any positional arguments for <code>main()</code>
+:param switches: command-line switches are passed as keyword arguments,
+                 e.g., <code>foo=5</code> for <code>--foo=5</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.cleanup">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationcleanup_4" class="mkapi-object-body method"><code class="mkapi-object-name">cleanup</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">retcode</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.cleanup" title="Source for plumbum.cli.application.Application.cleanup">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Called after <code>main()</code> and all sub-applications have executed, to perform any necessary cleanup.</p>
+<p>:param retcode: the return code of <code>main()</code></p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.helpall">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelpall_4" class="mkapi-object-body method"><code class="mkapi-object-name">helpall</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.helpall" title="Source for plumbum.cli.application.Application.helpall">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints help messages of all sub-commands and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.help">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationhelp_4" class="mkapi-object-body method"><code class="mkapi-object-name">help</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.help" title="Source for plumbum.cli.application.Application.help">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints this help message and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="plumbum.cli.application.Application.version">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="plumbumcliapplicationapplicationversion_4" class="mkapi-object-body method"><code class="mkapi-object-name">version</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/plumbum.cli.application/#plumbum.cli.application.Application.version" title="Source for plumbum.cli.application.Application.version">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Prints the program's version and quits</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+    <div class="mkapi-member">
+      <div class="mkapi-node" id="benchbuild.container.ContainerList.main">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object method code">
+    <div class="mkapi-object-kind method">method</div>
+    <h3 id="benchbuildcontainercontainerlistmain" class="mkapi-object-body method"><code class="mkapi-object-name">main</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code></h3>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.ContainerList.main" title="Source for benchbuild.container.ContainerList.main">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Implement me (no need to call super)</p></div>
+    </div>
+  </div>
+
+</div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.container.main">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildcontainermain" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.container">benchbuild.container</a>.</code><code class="mkapi-object-name">main</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">*args</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.container/#benchbuild.container.main" title="Source for benchbuild.container.main">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Main entry point for the container tool.</p></div>
+    </div>
+  </div>
+
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../benchbuild.project/" class="btn btn-neutral float-right" title="benchbuild.project">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../benchbuild.projects.lnt.lnt/" class="btn btn-neutral" title="benchbuild.projects.lnt.lnt"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/PolyJIT/benchbuild" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../benchbuild.projects.lnt.lnt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../benchbuild.project/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mkapi.js"></script>
+      <script src="../../js/pheasant.js"></script>
+      <script src="../../search/main.js"></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

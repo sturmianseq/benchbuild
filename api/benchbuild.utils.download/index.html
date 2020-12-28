@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="simbuerg">
+  <link rel="canonical" href="https://polyjit.github.io/benchbuild/api/benchbuild.utils.download/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>benchbuild.utils.download - BenchBuild</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/mkapi-common.css" rel="stylesheet" />
+  <link href="../../css/mkapi-readthedocs.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
+  <link href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css" rel="stylesheet" />
+  <link href="../../css/pheasant.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "benchbuild.utils.download";
+    var mkdocs_page_input_path = "api/benchbuild.utils.download.md";
+    var mkdocs_page_url = "/benchbuild/api/benchbuild.utils.download/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> BenchBuild</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">BenchBuild Documentation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../basics/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../basics/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Concepts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/source/">Source</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/environments/">Environment</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/projects/">Project</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../concepts/experiments/">Experiment</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Advanced Usage</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../advanced/">TODO</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild/">benchbuild</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.likwid/">benchbuild.likwid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.extensions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.extensions/">benchbuild.extensions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.extensions.base/">benchbuild.extensions.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.plugins/">benchbuild.plugins</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.db.versions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions/">benchbuild.db.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.002_Remove_GlobalConfig_table/">benchbuild.db.versions.002_Remove_GlobalConfig_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.001_Remove_RegressionTest_table/">benchbuild.db.versions.001_Remove_RegressionTest_table</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.db.versions.003_Unmanage_Events/">benchbuild.db.versions.003_Unmanage_Events</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.settings/">benchbuild.settings</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects/">benchbuild.projects</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.gentoo</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo/">benchbuild.projects.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.lammps/">benchbuild.projects.gentoo.lammps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.xz/">benchbuild.projects.gentoo.xz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.info/">benchbuild.projects.gentoo.info</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.crafty/">benchbuild.projects.gentoo.crafty</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.eix/">benchbuild.projects.gentoo.eix</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.portage_gen/">benchbuild.projects.gentoo.portage_gen</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.gentoo/">benchbuild.projects.gentoo.gentoo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.gzip/">benchbuild.projects.gentoo.gzip</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.postgresql/">benchbuild.projects.gentoo.postgresql</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.x264/">benchbuild.projects.gentoo.x264</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.sevenz/">benchbuild.projects.gentoo.sevenz</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.gentoo.bzip2/">benchbuild.projects.gentoo.bzip2</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.projects.lnt</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.lnt/">benchbuild.projects.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.projects.lnt.lnt/">benchbuild.projects.lnt.lnt</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.container/">benchbuild.container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.project/">benchbuild.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.engine/">benchbuild.engine</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.experiments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments/">benchbuild.experiments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments.raw/">benchbuild.experiments.raw</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiments.empty/">benchbuild.experiments.empty</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.environments.domain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.environments.domain/">benchbuild.environments.domain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.environments.domain.declarative/">benchbuild.environments.domain.declarative</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.cli</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli/">benchbuild.cli</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.experiment/">benchbuild.cli.experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.slurm/">benchbuild.cli.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.main/">benchbuild.cli.main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.log/">benchbuild.cli.log</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.run/">benchbuild.cli.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.project/">benchbuild.cli.project</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.cli.config/">benchbuild.cli.config</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">benchbuild.utils</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils/">benchbuild.utils</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.revision_ranges/">benchbuild.utils.revision_ranges</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.slurm/">benchbuild.utils.slurm</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.tasks/">benchbuild.utils.tasks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.bootstrap/">benchbuild.utils.bootstrap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.wrapping/">benchbuild.utils.wrapping</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.container/">benchbuild.utils.container</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">benchbuild.utils.download</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.dict/">benchbuild.utils.dict</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.db/">benchbuild.utils.db</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.settings/">benchbuild.utils.settings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.schema/">benchbuild.utils.schema</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.versions/">benchbuild.utils.versions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.schedule_tree/">benchbuild.utils.schedule_tree</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.run/">benchbuild.utils.run</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.path/">benchbuild.utils.path</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.compiler/">benchbuild.utils.compiler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.actions/">benchbuild.utils.actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.utils.user_interface/">benchbuild.utils.user_interface</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">benchbuild.source</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source/">benchbuild.source</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.http/">benchbuild.source.http</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.git/">benchbuild.source.git</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.source.base/">benchbuild.source.base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.statistics/">benchbuild.statistics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../benchbuild.experiment/">benchbuild.experiment</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release Notes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">BenchBuild</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>benchbuild.utils &raquo;</li>
+        
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>benchbuild.utils.download</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                
+<div class="mkapi-node" id="benchbuild.utils.download">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object module plain top">
+    <div class="mkapi-object-kind module top">module</div>
+    <h1 id="benchbuildutilsdownload" class="mkapi-object-body module top"><span class="mkapi-object-prefix"><a href="../benchbuild.utils/#benchbuild.utils">benchbuild.utils</a>.</span><span class="mkapi-object-name">download</span></h1>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download" title="Source for benchbuild.utils.download">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><h1 id="downloading-helper-functions-for-benchbuild">Downloading helper functions for benchbuild.</h1>
+<p>The helpers defined in this module provide access to some common Downloading
+methods for the source code of benchbuild projects.
+All downloads will be cached in BB_TMP_DIR and locked down with a hash that
+is generated after the first download. If the hash matches the file/folder
+found in BB_TMP_DIR, nothing will be downloaded at all.</p>
+<p>Supported methods:
+        Copy, CopyNoFail, Wget, Git, Svn, Rsync</p></div>
+    </div>
+  <div class="mkapi-section functions">
+      <div class="mkapi-section-name functions">
+          <span class="mkapi-section-name-body functions">Functions</span> 
+        </div>
+      <div class="mkapi-section-body functions"><ul class="mkapi-items">
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.Copy">Copy</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">From</code>, <code class="mkapi-object-signature">To</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Small copy wrapper.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Copy" title="Source for benchbuild.utils.download.Copy">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.CopyNoFail">CopyNoFail</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src</code>, <code class="mkapi-object-signature">root</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Just copy fName into the current working directory, if it exists.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.CopyNoFail" title="Source for benchbuild.utils.download.CopyNoFail">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.Git">Git</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">repository</code>, <code class="mkapi-object-signature">directory</code>, <code class="mkapi-object-signature">rev</code>, <code class="mkapi-object-signature">prefix</code>, <code class="mkapi-object-signature">shallow_clone</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Get a clone of the given repo<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Git" title="Source for benchbuild.utils.download.Git">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.Rsync">Rsync</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">url</code>, <code class="mkapi-object-signature">tgt_name</code>, <code class="mkapi-object-signature">tgt_root</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">RSync a folder.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Rsync" title="Source for benchbuild.utils.download.Rsync">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.Svn">Svn</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">url</code>, <code class="mkapi-object-signature">fname</code>, <code class="mkapi-object-signature">to</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Checkout the SVN repo.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Svn" title="Source for benchbuild.utils.download.Svn">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.Wget">Wget</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src_url</code>, <code class="mkapi-object-signature">tgt_name</code>, <code class="mkapi-object-signature">tgt_root</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Download url, if required.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Wget" title="Source for benchbuild.utils.download.Wget">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.__clone_needed__">__clone_needed__</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">repository</code>, <code class="mkapi-object-signature">directory</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(bool)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Do we need to create a fresh clone of the given repository.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.__clone_needed__" title="Source for benchbuild.utils.download.__clone_needed__">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.get_hash_of_dirs">get_hash_of_dirs</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">directory</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Recursively hash the contents of the given directory.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.get_hash_of_dirs" title="Source for benchbuild.utils.download.get_hash_of_dirs">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.source_required">source_required</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src_file</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(bool)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Check, if a download is required.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.source_required" title="Source for benchbuild.utils.download.source_required">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.update_hash">update_hash</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src_file</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Update the hash for the given file.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.update_hash" title="Source for benchbuild.utils.download.update_hash">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.with_git">with_git</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">repo</code>, <code class="mkapi-object-signature">target_dir</code>, <code class="mkapi-object-signature">limit</code>, <code class="mkapi-object-signature">refspec</code>, <code class="mkapi-object-signature">clone</code>, <code class="mkapi-object-signature">rev_list_args</code>, <code class="mkapi-object-signature">shallow_clone</code>, <code class="mkapi-object-signature">version_filter</code><code class="mkapi-object-parenthesis">)</code>
+<span class="mkapi-item-type">(callable(type of object: type of object))</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Decorate a project class with git-based version information.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.with_git" title="Source for benchbuild.utils.download.with_git">&lt;/&gt;</a></span></li>
+
+<li class="function"><code class="mkapi-item-name"><a href="#benchbuild.utils.download.with_wget">with_wget</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">url_dict</code>, <code class="mkapi-object-signature">target_file</code><code class="mkapi-object-parenthesis">)</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Decorate a project class with wget-based version information.<a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.with_wget" title="Source for benchbuild.utils.download.with_wget">&lt;/&gt;</a></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.get_hash_of_dirs">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadget_hash_of_dirs" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">get_hash_of_dirs</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">directory</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.get_hash_of_dirs" title="Source for benchbuild.utils.download.get_hash_of_dirs">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Recursively hash the contents of the given directory.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">directory</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The root directory we want to hash.</span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section returns">
+      <div class="mkapi-section-name returns">
+          <span class="mkapi-section-name-body returns">Returns</span> <span class="mkapi-item-type">(str)</span>
+        </div>
+      <div class="mkapi-section-body returns"><p>A hash of all the contents in the directory.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.source_required">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadsource_required" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">source_required</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src_file</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.source_required" title="Source for benchbuild.utils.download.source_required">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Check, if a download is required.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">src_file</code>
+<span class="mkapi-item-type">(LocalMachine.path)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The filename to check for.</span></li>
+
+<li><code class="mkapi-item-name">src_root</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The path we find the file in.</span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section returns">
+      <div class="mkapi-section-name returns">
+          <span class="mkapi-section-name-body returns">Returns</span> <span class="mkapi-item-type">(bool)</span>
+        </div>
+      <div class="mkapi-section-body returns"><p>True, if we need to download something, False otherwise.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.update_hash">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadupdate_hash" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">update_hash</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src_file</code><code class="mkapi-object-parenthesis">)</code><span class="mkapi-item-type"> &#x2192; str</span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.update_hash" title="Source for benchbuild.utils.download.update_hash">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Update the hash for the given file.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+
+<li><code class="mkapi-item-name">src</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The file name.</span></li>
+
+<li><code class="mkapi-item-name">root</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The path of the given file.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.Copy">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadcopy" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">Copy</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">From</code>, <code class="mkapi-object-signature">To</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Copy" title="Source for benchbuild.utils.download.Copy">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Small copy wrapper.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">From</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Path to the SOURCE.</span></li>
+
+<li><code class="mkapi-item-name">To</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Path to the TARGET.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.CopyNoFail">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadcopynofail" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">CopyNoFail</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src</code>, <code class="mkapi-object-signature">root=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.CopyNoFail" title="Source for benchbuild.utils.download.CopyNoFail">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Just copy fName into the current working directory, if it exists.</p>
+<p>No action is executed, if fName does not exist. No Hash is checked.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">src</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The filename we want to copy to '.'.</span></li>
+
+<li><code class="mkapi-item-name">root</code>
+<span class="mkapi-item-type">(optional)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The optional source dir we should pull fName from. Defaults
+to benchbuild.settings.CFG["tmpdir"].</span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section returns">
+      <div class="mkapi-section-name returns">
+          <span class="mkapi-section-name-body returns">Returns</span> 
+        </div>
+      <div class="mkapi-section-body returns"><p>True, if we copied something.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.Wget">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadwget" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">Wget</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">src_url</code>, <code class="mkapi-object-signature">tgt_name</code>, <code class="mkapi-object-signature">tgt_root=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Wget" title="Source for benchbuild.utils.download.Wget">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Download url, if required.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">src_url</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Our SOURCE url.</span></li>
+
+<li><code class="mkapi-item-name">tgt_name</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The filename we want to have on disk.</span></li>
+
+<li><code class="mkapi-item-name">tgt_root</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The TARGET directory for the download.
+Defaults to <code>CFG["tmpdir"]</code>.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.with_wget">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadwith_wget" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">with_wget</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">url_dict=None</code>, <code class="mkapi-object-signature">target_file=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.with_wget" title="Source for benchbuild.utils.download.with_wget">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Decorate a project class with wget-based version information.</p>
+<p>This adds two attributes to a project class:
+    - A <code>versions</code> method that returns a list of available versions
+      for this project.
+    - A <code>repository</code> attribute that provides a repository string to
+      download from later.
+We use the <code>git rev-list</code> subcommand to list available versions.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">url_dict</code>
+<span class="mkapi-item-type">(dict)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A dictionary that assigns a version to a download URL.</span></li>
+
+<li><code class="mkapi-item-name">target_file</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">An optional path where we should put the clone.
+If unspecified, we will use the <code>SRC_FILE</code> attribute of
+the decorated class.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.__clone_needed__">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadclone_needed" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">__clone_needed__</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">repository</code>, <code class="mkapi-object-signature">directory</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.__clone_needed__" title="Source for benchbuild.utils.download.__clone_needed__">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Do we need to create a fresh clone of the given repository.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">repository</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">the repository we want to clone.</span></li>
+
+<li><code class="mkapi-item-name">directory</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">the directory we expect the clone to live.</span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section returns">
+      <div class="mkapi-section-name returns">
+          <span class="mkapi-section-name-body returns">Returns</span> <span class="mkapi-item-type">(bool)</span>
+        </div>
+      <div class="mkapi-section-body returns"><p>True, if the clone is required.
+False, if the directory is a valid clone.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.Git">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadgit" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">Git</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">repository</code>, <code class="mkapi-object-signature">directory</code>, <code class="mkapi-object-signature">rev=&#39;&#39;</code>, <code class="mkapi-object-signature">prefix=&#39;&#39;</code>, <code class="mkapi-object-signature">shallow_clone=True</code><code class="mkapi-object-parenthesis">)</code><span class="mkapi-item-type"> &#x2192; str</span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Git" title="Source for benchbuild.utils.download.Git">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Get a clone of the given repo</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">repository</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Git URL of the SOURCE repo.</span></li>
+
+<li><code class="mkapi-item-name">directory</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Name of the repo folder on disk.</span></li>
+
+<li><code class="mkapi-item-name">rev</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A revision to check out.</span></li>
+
+<li><code class="mkapi-item-name">prefix</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">TARGET folder for the git repo.
+Defaults to <code>CFG["tmpdir"]</code></span></li>
+
+<li><code class="mkapi-item-name">shallow_clone</code>
+<span class="mkapi-item-type">(bool)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Only clone the repository shallow
+Defaults to true</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.with_git">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadwith_git" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">with_git</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">repo</code>, <code class="mkapi-object-signature">target_dir=None</code>, <code class="mkapi-object-signature">limit=None</code>, <code class="mkapi-object-signature">refspec=&#39;HEAD&#39;</code>, <code class="mkapi-object-signature">clone=True</code>, <code class="mkapi-object-signature">rev_list_args=None</code>, <code class="mkapi-object-signature">shallow_clone=True</code>, <code class="mkapi-object-signature">version_filter=&lt;function &lt;lambda&gt; at 0x7ff08e7ee280&gt;</code><code class="mkapi-object-parenthesis">)</code><span class="mkapi-item-type"> &#x2192; callable(type of object: type of object)</span></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.with_git" title="Source for benchbuild.utils.download.with_git">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Decorate a project class with git-based version information.</p>
+<p>This adds two attributes to a project class:
+    - A <code>versions</code> method that returns a list of available versions
+      for this project.
+    - A <code>repository</code> attribute that provides a repository string to
+      download from later.
+We use the <code>git rev-list</code> subcommand to list available versions.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">repo</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Repository to download from, this will be stored
+in the <code>repository</code> attribute of the decorated class.</span></li>
+
+<li><code class="mkapi-item-name">target_dir</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">An optional path where we should put the clone.
+If unspecified, we will use the <code>SRC_FILE</code> attribute of
+the decorated class.</span></li>
+
+<li><code class="mkapi-item-name">limit</code>
+<span class="mkapi-item-type">(int)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Limit the number of commits to consider for available
+versions. Versions are 'ordered' from latest to oldest.</span></li>
+
+<li><code class="mkapi-item-name">refspec</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">A git refspec string to start listing the versions from.</span></li>
+
+<li><code class="mkapi-item-name">clone</code>
+<span class="mkapi-item-type">(bool)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Should we clone the repo if it isn't already available
+in our tmp dir? Defaults to <code>True</code>. You can set this to False to
+avoid time consuming clones, when the project has not been accessed
+at least once in your installation.</span></li>
+
+
+<li><code class="mkapi-item-name">shallow_clone</code>
+<span class="mkapi-item-type">(bool)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Only clone the repository shallow
+Defaults to true</span></li>
+
+<li><code class="mkapi-item-name">version_filter</code>
+<span class="mkapi-item-type">(class filter)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Filter function to remove unwanted
+project versions.</span></li>
+
+<li><code class="mkapi-item-name">ref_list_args</code>
+<span class="mkapi-item-type">(list of str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Additional arguments you want to pass to
+<code>git rev-list</code>.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.Svn">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadsvn" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">Svn</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">url</code>, <code class="mkapi-object-signature">fname</code>, <code class="mkapi-object-signature">to=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Svn" title="Source for benchbuild.utils.download.Svn">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Checkout the SVN repo.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">url</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The SVN SOURCE repo.</span></li>
+
+<li><code class="mkapi-item-name">fname</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The name of the repo on disk.</span></li>
+
+<li><code class="mkapi-item-name">to</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The name of the TARGET folder on disk.
+Defaults to <code>CFG["tmpdir"]</code></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="benchbuild.utils.download.Rsync">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object function code top">
+    <div class="mkapi-object-kind function top">function</div>
+    <h2 id="benchbuildutilsdownloadrsync" class="mkapi-object-body function top"><code class="mkapi-object-prefix"><a href="#benchbuild.utils.download">benchbuild.utils.download</a>.</code><code class="mkapi-object-name">Rsync</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">url</code>, <code class="mkapi-object-signature">tgt_name</code>, <code class="mkapi-object-signature">tgt_root=None</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/benchbuild.utils.download/#benchbuild.utils.download.Rsync" title="Source for benchbuild.utils.download.Rsync">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>RSync a folder.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">url</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The url of the SOURCE location.</span></li>
+
+
+
+<li><code class="mkapi-item-name">fname</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">The name of the TARGET.</span></li>
+
+<li><code class="mkapi-item-name">to</code>
+<span class="mkapi-item-type">(str)</span>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Path of the target location.
+Defaults to <code>CFG["tmpdir"]</code>.</span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../benchbuild.utils.dict/" class="btn btn-neutral float-right" title="benchbuild.utils.dict">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../benchbuild.utils.container/" class="btn btn-neutral" title="benchbuild.utils.container"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/PolyJIT/benchbuild" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../benchbuild.utils.container/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../benchbuild.utils.dict/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mkapi.js"></script>
+      <script src="../../js/pheasant.js"></script>
+      <script src="../../search/main.js"></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
