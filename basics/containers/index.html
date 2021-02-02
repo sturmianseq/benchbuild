@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="simbuerg">
-  <link rel="canonical" href="https://polyjit.github.io/benchbuild/basics/configuration/">
+  <link rel="canonical" href="https://polyjit.github.io/benchbuild/basics/containers/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Configuration - BenchBuild</title>
+  <title>Containers - BenchBuild</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Configuration";
-    var mkdocs_page_input_path = "basics/configuration.md";
-    var mkdocs_page_url = "/benchbuild/basics/configuration/";
+    var mkdocs_page_name = "Containers";
+    var mkdocs_page_input_path = "basics/containers.md";
+    var mkdocs_page_url = "/benchbuild/basics/containers/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -64,9 +64,11 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../">Installation</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Configuration</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../containers/">Containers</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Containers</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Concepts</span></p>
@@ -115,7 +117,7 @@
         
       
     
-    <li>Configuration</li>
+    <li>Containers</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -127,23 +129,82 @@
             <div class="section">
               
                 
-<div class="mkapi-node" id="benchbuild.settings">
-<div class='mkapi-object-container'>
-  <div class="mkapi-object module code top">
-    <div class="mkapi-object-kind module top">module</div>
-    <div class="mkapi-object-body module top"><code class="mkapi-object-prefix">benchbuild.</code><code class="mkapi-object-name">settings</code></div>
-  </div>
-  
-</div>
-<div class="mkapi-docstring">
-<div class="mkapi-section">
-      <div class="mkapi-section-body"><p>Settings module for benchbuild.</p>
-<p>All settings are stored in a simple dictionary. Each
-setting should be modifiable via environment variable.</p></div>
-    </div>
-  </div>
+<p>Benchbuild allows the definition of container images to define the base system
+all experiment runs run in for a given project.</p>
+<h2 id="usage">Usage</h2>
+<p>If you want to run an experiment inside the project's container, simply replace
+the usual <code>run</code> subcommand with the <code>container</code> subcommand. Project and
+experiment selection are done in the same way.</p>
+<p>Example:</p>
+<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">benchbuild container -E raw linpack</code></pre></div>
+<div class="report"><p><span class="count">[1]</span>
+<span class="start"></span> (<span class="time"></span>)
+<span class="right"><span class="kernel"></span> (<span class="total"></span>)</span></p></div></div></div></div>
 
-</div>
+<p>This will run the following stages:</p>
+<ol>
+<li>Build all necessary base images.
+     All images are initiated from a base image. Benchbuild knows how to construct
+     a few base images. These will be prepared with all dependencies required to
+     run benchbuild inside the container.</li>
+<li>Build all project images. Each project has to define its' own image.</li>
+<li>Build the experiment images. Each experiment can add anything it needs to the
+     project images, if required. Use this to bring tools into the image that do
+     not require any knowledge about the environment to run properly.
+     For anything else, consider using a custom base image.</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<p>You can configure the container environment using the following config variables.</p>
+<ul>
+<li><code>BB_CONTAINER_EXPORT</code>: Path where benchbuild stores exported container
+  images. By default we store it in <code>./containers/export</code>. Will be created
+  automatically, if needed.</li>
+<li><code>BB_CONTAINER_IMPORT</code>: Path where to input images from into the registry.
+  By default we load from <code>./containers/export</code>.</li>
+<li><code>BB_CONTAINER_FROM_SOURCE</code>: Determine, if we should use benchbuild from the
+  current source checkout, or from pip.</li>
+<li><code>BB_CONTAINER_ROOT</code>: Where we store our image layers. This is the image
+  registry. Cannot be stored on filesystems that do not support subuid/-gid
+  mapping, e.g. NFS.
+  The default location is <code>./containers/lib</code>.</li>
+<li><code>BB_CONTAINER_RUNROOT</code>: Where we store temporary image layers of running
+  containers. See <code>BB_CONTAINER_ROOT</code> for restrictions.
+  The default location is: <code>./containers/run</code>.</li>
+<li><code>BB_CONTAINER_RUNTIME</code>: Podman can use any standard OCI-container runtime to
+  launch containers. We use <a href="https://github.com/containers/crun">crun</a> by
+  default. Depending on your system, this one has already been installed with
+  <code>podman</code>.
+  The default runtime is: <code>/usr/bin/crun</code></li>
+<li><code>BB_CONTAINER_MOUNTS</code>: A list of mountpoint definitions that should be added
+  to all containers. With this you can add arbitrary tools into all containers.
+  Default: <code>[]</code></li>
+</ul>
+<h2 id="definition">Definition</h2>
+<p>A project that wants to use a container image needs to define it in the
+<code>CONTAINER</code> attribute it using our declarative API provided by
+<code>benchbuild.environments.domain.declarative</code>.</p>
+<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">from benchbuild.environments.domain.declarative import ContainerImage
+
+class Testproject(Project):
+  CONTAINER = ContainerImage().from_(&#39;benchbuild:alpine&#39;)</code></pre></div>
+<div class="report"><p><span class="count">[2]</span>
+<span class="start"></span> (<span class="time"></span>)
+<span class="right"><span class="kernel"></span> (<span class="total"></span>)</span></p></div></div></div></div>
+
+<p>The available set of commands follows the structure of a <code>Dockerfile</code>.</p>
+<h2 id="runtime-requirements">Runtime requirements</h2>
+<p>For containers to work properly, you need a few systems set up beforehand.</p>
+<h3 id="buildah">Buildah</h3>
+<p>Image construction requires the <a href="https://buildah.io">Buildah</a> tool. All image
+construction tasks are formulated as buildah command calls in the backend.</p>
+<h3 id="podman">Podman</h3>
+<p>Container construction and execution is handed off to <a href="https://podman.io">Podman</a>.
+Podman provides rootless containers and does not requires the execution of a
+daemon process. However, you need to setup your user namespace properly to allow
+mapping of subordinate uids/gids. Otherwise, podman will not be able to map
+users other than the root user to filesystem permissions inside the container.</p>
+<p>Please refer to podman's documentation on how to setup podman properly on your
+system.</p>
               
             </div>
           </div>
@@ -151,10 +212,10 @@ setting should be modifiable via environment variable.</p></div>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../containers/" class="btn btn-neutral float-right" title="Containers">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../concepts/source/" class="btn btn-neutral float-right" title="Source">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../configuration/" class="btn btn-neutral" title="Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -182,10 +243,10 @@ setting should be modifiable via environment variable.</p></div>
           <a href="https://github.com/PolyJIT/benchbuild" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../containers/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../concepts/source/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
