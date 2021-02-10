@@ -68,6 +68,8 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Containers</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#replace-images">Replace Images</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -153,6 +155,18 @@ experiment selection are done in the same way.</p>
      not require any knowledge about the environment to run properly.
      For anything else, consider using a custom base image.</li>
 </ol>
+<h3 id="replace-images">Replace Images</h3>
+<p>Benchbuild will reuse any existing images it can find in your image registry.
+The only relevant information is the image tag, e.g., <code>benchbuild:alpine</code>.
+If you want to avoid reuse and force to rebuild images unconditionally, you can
+use the <code>--replace</code> flag when running the <code>containers</code> subcommand.</p>
+<p>Example:</p>
+<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">benchbuild container --replace -E raw linpack</code></pre></div>
+<div class="report"><p><span class="count">[2]</span>
+<span class="start"></span> (<span class="time"></span>)
+<span class="right"><span class="kernel"></span> (<span class="total"></span>)</span></p></div></div></div></div>
+
+<p>This will ignore <strong>any</strong> required image for the given experiments and projects.</p>
 <h2 id="configuration">Configuration</h2>
 <p>You can configure the container environment using the following config variables.</p>
 <ul>
@@ -187,7 +201,7 @@ experiment selection are done in the same way.</p>
 
 class Testproject(Project):
   CONTAINER = ContainerImage().from_(&#39;benchbuild:alpine&#39;)</code></pre></div>
-<div class="report"><p><span class="count">[2]</span>
+<div class="report"><p><span class="count">[3]</span>
 <span class="start"></span> (<span class="time"></span>)
 <span class="right"><span class="kernel"></span> (<span class="total"></span>)</span></p></div></div></div></div>
 
