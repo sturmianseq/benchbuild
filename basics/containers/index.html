@@ -133,10 +133,10 @@
 all experiment runs run in for a given project.</p>
 <h2 id="usage">Usage</h2>
 <p>If you want to run an experiment inside the project's container, simply replace
-the usual <code>run</code> subcommand with the <code>container</code> subcommand. Project and
+the usual <code>run</code> subcommand with the <code>container run</code> subcommand. Project and
 experiment selection are done in the same way.</p>
 <p>Example:</p>
-<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">benchbuild container -E raw linpack</code></pre></div>
+<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">benchbuild container run -E raw linpack</code></pre></div>
 <div class="report"><p><span class="count">[1]</span>
 <span class="start"></span> (<span class="time"></span>)
 <span class="right"><span class="kernel"></span> (<span class="total"></span>)</span></p></div></div></div></div>
@@ -159,7 +159,7 @@ The only relevant information is the image tag, e.g., <code>benchbuild:alpine</c
 If you want to avoid reuse and force to rebuild images unconditionally, you can
 use the <code>--replace</code> flag when running the <code>containers</code> subcommand.</p>
 <p>Example:</p>
-<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">benchbuild container --replace -E raw linpack</code></pre></div>
+<div class="pheasant-fenced-code"><div class="cached"><div class="cell jupyter input"><div class="code"><pre><code class="">benchbuild container run --replace -E raw linpack</code></pre></div>
 <div class="report"><p><span class="count">[2]</span>
 <span class="start"></span> (<span class="time"></span>)
 <span class="right"><span class="kernel"></span> (<span class="total"></span>)</span></p></div></div></div></div>
@@ -209,6 +209,7 @@ class Testproject(Project):
 <h3 id="buildah">Buildah</h3>
 <p>Image construction requires the <a href="https://buildah.io">Buildah</a> tool. All image
 construction tasks are formulated as buildah command calls in the backend.</p>
+<p>Buildah is supported up to version 1.19.8.</p>
 <h3 id="podman">Podman</h3>
 <p>Container construction and execution is handed off to <a href="https://podman.io">Podman</a>.
 Podman provides rootless containers and does not requires the execution of a
@@ -217,6 +218,7 @@ mapping of subordinate uids/gids. Otherwise, podman will not be able to map
 users other than the root user to filesystem permissions inside the container.</p>
 <p>Please refer to podman's documentation on how to setup podman properly on your
 system.</p>
+<p>Podman is supported up to version 2.2.1</p>
               
             </div>
           </div>
